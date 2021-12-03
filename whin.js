@@ -14,9 +14,7 @@ module.exports = function (RED) {
 		node.authconf = RED.nodes.getNode(config.auth);
 
 		resetStatus();
-
-		node.on('input', function (msg) {
-			const options = {
+		const options = {
 				hostname: 'mqin.inutil.info',
 				port: 30333,
 				path: '/whin',
@@ -25,6 +23,14 @@ module.exports = function (RED) {
 				  'Content-Type': 'application/json'
 				}
 			  }
+		const connData = {
+				phone: node.authconf.phone,
+				token: node.authconf.token,
+                text: node.payload
+			};
+
+		node.on('input', function (msg) {
+			
 			const req = http.request(options, res => {	  
 				res.on('data', d => {
 				  msg.payload = d.body;    
@@ -34,15 +40,11 @@ module.exports = function (RED) {
 				msg.payload = "ERROR";
 			  })
             
-              const connData = {
-				phone: node.authconf.phone,
-				token: node.authconf.token,
-                                text: msg.payload
-			};
+              
 
             req.write(connData)
             req.end()			
-			node.send(msg);				
+	    node.send(msg);				
 
 		});
 	}
