@@ -38,7 +38,7 @@ module.exports = function (RED) {
               const connData = {
 				phone: node.authconf.phone,
 				token: node.authconf.token,
-                text: msg.payload
+                                text: msg.payload
 			};
 
             req.write(connData)
