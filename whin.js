@@ -26,7 +26,7 @@ module.exports = function (RED) {
 		const connData = {
 				phone: node.authconf.phone,
 				token: node.authconf.token,
-                text: node.payload
+                text: "kaka de la vaka"
 			};
 
 		node.on('input', function (msg) {
