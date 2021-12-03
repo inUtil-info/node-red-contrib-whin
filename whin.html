@@ -1,0 +1,37 @@
+<script type="text/javascript">
+    RED.nodes.registerType('whin',{
+        category: 'function',
+        color: '#a6bbcf',
+        defaults: {
+            name: 	{value:""},
+            auth:	{value: "", type: "whin-config"}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "white-globe.png",
+        label: function() {
+            return this.name||"whin";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="whin">
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+		
+    <div class="form-row">
+        <label for="node-input-auth"><i class="icon-tag"></i> Auth</label>
+        <input type="text" id="node-input-auth" placeholder="Auth">
+    </div>
+	
+	
+</script>
+
+<script type="text/x-red" data-help-name="http-ntlm-req">
+    <p>Whin allows to send Whatsapp texts to your own mobile phone.</p>
+    <p>Set yourself up by sending a Whatsapp text with the word 'alta' to +34 613 164 997</p>
+		
+</script>
