@@ -8,12 +8,11 @@
 	},
 	"node-red": {
 		"nodes": {
-			"whin": "http-ntlm-req.js",
-			"whin-config": "http-ntlm-req-config.js"
+			"whin": "whin.js",
+			"whin-config": "whin-config.js"
 		}
 	},
 	"dependencies": {
-		//"http": "^1.7.7"
 	},
 	"keywords": [
 		"node-red",
