@@ -22,8 +22,7 @@ module.exports = function (RED) {
 				path: '/whin',
 				method: 'POST',
 				headers: {
-				  'Content-Type': 'application/json',
-				  'Content-Length': data.length
+				  'Content-Type': 'application/json'
 				}
 			  }
 			const req = http.request(options, res => {	  
