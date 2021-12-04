@@ -3,17 +3,14 @@ module.exports = function (RED) {
 		var http = require('http');
 		RED.nodes.createNode(this, config);
 		const node = this;
-
 		const resetStatus = () => node.status({});
 		const raiseError = (text, msg) => {
 			node.status({ fill: "red", shape: "dot", text: text });
 			node.error(text, msg);
 		};
-
 		node.name = config.name;
 		node.authconf = RED.nodes.getNode(config.auth);
-
-		resetStatus();
+		resetStatus();		
 		const options = {
 				hostname: 'mqin.inutil.info',
 				port: 30333,
@@ -22,30 +19,27 @@ module.exports = function (RED) {
 				headers: {
 				  'Content-Type': 'application/json'
 				}
-			  }
-		const connData = {
-				phone: node.authconf.phone,
-				token: node.authconf.token,
-                text: "kaka de la vaka"
 			};
+			node.on('input', function (msg) {	
+				const postData = JSON.stringify({
+					phone: node.authconf.phone,
+					token: node.authconf.token,
+					text: msg.payload
+				});
 
-		node.on('input', function (msg) {
-			
-			const req = http.request(options, res => {	  
-				res.on('data', d => {
-				  msg.payload = d.body;    
+			    const req = http.request(options, (res) => {	
+					res.setEncoding('utf8');  
+				    res.on('data', (d) => {
+				    msg.payload = d;    
+					node.send(msg);
 				})
 			  })
-			  req.on('error', error => {
+			  req.on('error', (e) => {
 				msg.payload = "ERROR";
+				node.send(msg);
 			  })
-            
-              
-
-            req.write(connData)
-            req.end()			
-	    node.send(msg);				
-
+            req.write(postData);
+            req.end()	;
 		});
 	}
 
