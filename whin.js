@@ -12,7 +12,7 @@ module.exports = function (RED) {
 		node.authconf = RED.nodes.getNode(config.auth);
 		resetStatus();		
 		const options = {
-				hostname: 'mqin.inutil.info',
+				hostname: 'whin.inutil.info',
 				port: 30333,
 				path: '/whin',
 				method: 'POST',
