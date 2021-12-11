@@ -10,7 +10,7 @@ text Whatsapp with your mobile to +34 613 164 997 including the word signup, and
 Open the configuration node and fill in the fields *Phone* and *Token*, and you'll be all set.
 
 - *Phone* field has the following format: countrycode and number, without spaces; example for Spain: 346XXYYYZZZ
-- *Token* field has the following format: hex string, with 40 characters, no spaces; example: 21f5d a020bad5919d1fba72e74c15da5881efb4a
+- *Token* field has the following format: hex string, with 40 characters, no spaces; example: 21f5da020bad5919d1fba72e74c15da5881efb4a
 
 Note that the Phone and Token values are linked, this means that the node wont work if the phone
 number used to get the token is not matching the one you used to get the token. This is done to prevent spam.
