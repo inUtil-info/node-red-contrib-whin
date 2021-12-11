@@ -8,6 +8,10 @@ The only thing required is a token, that can be retrieved by setting up Whin. To
 text Whatsapp with your mobile to +34 613 164 997 including the word signup, and you will get your token in a response text.
 
 Open the configuration node and fill in the fields *Phone* and *Token*, and you'll be all set.
+
+*Phone* field has the following format: countrycode and number, without spaces; example for Spain: 346XXYYYZZZ
+*Token* field has the following format: hex string, with 40 characters, no spaces; example: 21f5d a020bad5919d1fba72e74c15da5881efb4a
+
 Note that the Phone and Token values are linked, this means that the node wont work if the phone
 number used to get the token is not matching the one you used to get the token. This is done to prevent spam.
 
@@ -23,7 +27,8 @@ We understand that the user sending the sign-up message wishes to use the servic
 sending whatsapp messages to the number that orginated the request. We do not share the numbers using the
 service with anyone. We do not send messages to our users.
 
-There is a daily rate limit set to 100 messages per user.
+There is an hourly rate limit set to 100 messages per user. This is done to prevent errors of users testing the system.
+The limit can and will be raised in the future.
 
 If you wish to stop using the service, you just want to stop using the node and your token will be
 deleted after 30 days.
