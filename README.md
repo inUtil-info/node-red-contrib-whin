@@ -3,6 +3,9 @@ Node-red nodes that allow users to send Whatsapp text to one's mobile.
 
 
 ## Set-up and Usage:
+Before using this node, we strongly recommend you read this FAQ:
+https://github.com/inUtil-info/node-red-contrib-whin/wiki/FAQ
+
 This package contains a configuration node, and a sender node which acts as a WhatsApp endpoint. 
 The only thing required is a token, that can be retrieved by setting up Whin. To do so, just send a
 text Whatsapp with your mobile to +34 613 164 997 including the word signup, and you will get your token in a response text.
