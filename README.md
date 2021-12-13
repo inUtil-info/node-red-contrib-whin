@@ -51,6 +51,22 @@ There are two types of errors that you can get when using the node:
 ## Configuration Node:
 These are the fields that you need to complete to set up the whin config node:
 
+![config-node](./icons/config-node.png)
+
 ## Sender Node:
-These are the fields that you need to complete to set up the whin sender node:
+These are no fields that you have to edit to send a whatsapp message. If you completed the config fields before, you are all set.
+
+![config-node](./icons/sender-node.png)
+
+## Sample Flow:
+
+Before inporting this flow, make sure you added the node-red-contrib-whin node on your palette:
+
+![palette](./icons/palete.png)
+
+You can inport this simple flow and just edit the config fields; add your phone/token pair, and you will get a whatsapp message when you click on the inject node. 
+
+[{"id":"efd5d46d4d8baab4","type":"whin","z":"cb358f93.bea12","name":"","auth":"f160031f44835f95","x":350,"y":650,"wires":[["4703f7051e36f3da"]]},{"id":"8c62536e8bf67956","type":"inject","z":"cb358f93.bea12","name":"","props":[{"p":"payload"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"hello from node-red-contrib-whin","payloadType":"str","x":175,"y":650,"wires":[["efd5d46d4d8baab4"]]},{"id":"4703f7051e36f3da","type":"debug","z":"cb358f93.bea12","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","statusVal":"","statusType":"auto","x":520,"y":725,"wires":[]},{"id":"f160031f44835f95","type":"whin-config","name":"whin","phone":"your_phone_goes_here","token":"your_token_goes_here"}]
+
+![flow](./icons/simple-flow.png)
 
