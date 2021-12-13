@@ -1,7 +1,7 @@
 {
   "name": "node-red-contrib-whin",
   "description": "Whatsapp self notification",
-  "version": "0.0.4.1",
+  "version": "0.0.5",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/inutil-info/node-red-contrib-whin.git"
