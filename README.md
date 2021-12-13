@@ -16,7 +16,7 @@ Open the configuration node and fill in the fields *Phone* and *Token*, and you'
 - *Token* field has the following format: hex string, with 40 characters, no spaces; example: 21f5da020bad5919d1fba72e74c15da5881efb4a
 
 
-![whin-nodes](./icons/whin.png"whin")
+![whin-nodes](./icons/whin.png)
 
 Note that the Phone and Token values are linked, this means that the node wont work if the phone
 number used to get the token is not matching the one you used to get the token. This is done to prevent spam.
