@@ -15,9 +15,6 @@ Open the configuration node and fill in the fields *Phone* and *Token*, and you'
 - *Phone* field has the following format: countrycode and number, without spaces; example for Spain: 346XXYYYZZZ
 - *Token* field has the following format: hex string, with 40 characters, no spaces; example: 21f5da020bad5919d1fba72e74c15da5881efb4a
 
-
-![whin-nodes](./icons/whin.png)
-
 Note that the Phone and Token values are linked, this means that the node wont work if the phone
 number used to get the token is not matching the one you used to get the token. This is done to prevent spam.
 
@@ -26,6 +23,10 @@ message using the node. Keep using the service from time to time, and it won't e
 If you, for whatever reason, do not use the service for 30 days, you can get a new token repeating 
 the process described above.
 
+
+### Set-up and usage flow:
+
+![whin-nodes](./icons/whin.png)
 
 ## Terms of use:
 The service is free, you do not need to register, and we do not gather any Personal Info. 
