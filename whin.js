@@ -1,6 +1,6 @@
 module.exports = function (RED) {
 	function WhinNode(config) {
-		var http = require('http');
+		var https = require('https');
 		RED.nodes.createNode(this, config);
 		const node = this;
 		const resetStatus = () => node.status({});
@@ -13,7 +13,7 @@ module.exports = function (RED) {
 		resetStatus();		
 		const options = {
 				hostname: 'whin.inutil.info',
-				port: 30333,
+				port: 443,
 				path: '/whin',
 				method: 'POST',
 				headers: {
