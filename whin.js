@@ -27,7 +27,7 @@ module.exports = function (RED) {
 					text: msg.payload
 				});
 
-			    const req = http.request(options, (res) => {	
+			    const req = https.request(options, (res) => {	
 					res.setEncoding('utf8');  
 				    res.on('data', (d) => {
 				    msg.payload = d;    
