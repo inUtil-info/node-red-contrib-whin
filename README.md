@@ -65,8 +65,13 @@ If you completed the config fields before, you are all set. There are no fields 
 
 ![config-node](./icons/sender-node.png)
 
-Do NOT include '+' before your countrycode, and make sure the token has no spaces before or after:
-![config-node2](./icons/sender-node.png)
+Bear in mind: 
+- Do NOT include '+' before your countrycode,
+- Do NOT include a '-', or any other character or space (anything which is not a number) as part of your phone number.
+- If you do not know, or are not sure of, which is your country code check this: https://countrycode.org/
+- Make sure the token has no spaces before or after:
+
+![config-node2](./icons/sender-node2.png)
 
 ## Sample Flow:
 
