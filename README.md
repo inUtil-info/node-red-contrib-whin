@@ -7,13 +7,19 @@ Before using this node, we strongly recommend you read this FAQ first:
 https://github.com/inUtil-info/node-red-contrib-whin/wiki/FAQ
 
 This package contains a configuration node, and a sender node which acts as a WhatsApp endpoint. 
-The only thing required is a token, that can be retrieved by setting up Whin. To do so, just send a
+The only thing required is a token, that can be retrieved by setting up Whin. To do so just send a
 text Whatsapp with your mobile to +34 613 164 997 including the word *signup*, and you will get your token in a response text.
+
+If you click on this link: https://wa.me/34613164997?text=signup all you need is click send from within whatsapp and you'll get your token.
+
+![signup](./icons/signup.png)
 
 To set up whin: open the configuration node and fill in the fields *Phone* and *Token*, and you'll be all set.
 
 - *Phone* field has the following format: countrycode and number, without spaces; example for Spain: 346XXYYYZZZ
 - *Token* field has the following format: hex string, with 40 characters, no spaces; example: 21f5da020bad5919d1fba72e74c15da5881efb4a
+
+
 
 Note that the Phone and Token values are linked, this means that the node wont work if the phone
 number used to get the token is not matching the one you used to get the token. This is to prevent spam.
@@ -52,10 +58,15 @@ These are the fields that you need to complete to set up the whin config node:
 
 ![config-node](./icons/config-node.png)
 
+
+
 ## Sender Node:
 If you completed the config fields before, you are all set. There are no fields that you have to edit to start sending a whatsapp message. 
 
 ![config-node](./icons/sender-node.png)
+
+Do NOT include '+' before your countrycode, and make sure the token has no spaces before or after:
+![config-node2](./icons/sender-node.png)
 
 ## Sample Flow:
 
