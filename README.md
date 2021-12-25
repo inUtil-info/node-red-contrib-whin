@@ -71,7 +71,7 @@ Bear in mind:
 - If you do not know, or are not sure of, which is your country code check this: https://countrycode.org/
 - Make sure the token has no spaces before or after:
 
-![config-node2](./icons/sender-node2.png)
+![config-node2](./icons/config-node2.png)
 
 ## Sample Flow:
 
