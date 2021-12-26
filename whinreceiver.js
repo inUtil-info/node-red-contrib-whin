@@ -12,7 +12,7 @@ module.exports = function (RED) {
 		node.name = config.name;
 		node.authconf = RED.nodes.getNode(config.auth);
 		resetStatus();		
-        const topik = node.authconf.token;
+        const topik = "whin/"+node.authconf.token+"/#";
         function suscribe(){}
         mqclient.on("connect", () => {mqclient.subscribe(topik+"/#",{qos:2})});
         mqclient.on('message', (topic, data) => {msg.payload=data; node.send(msg)})
