@@ -20,6 +20,7 @@ module.exports = function (RED) {
 		node.send(msg)})
         mqclient.on("error",()=>{node.warn("Error: Whin Receiver not accessible. Please check Internet connection.")});
 	}
-	RED.nodes.registerType("whinreceiver", whinreceiver);
 	RED.events.on("deploy",whinreceiver(config));
+	RED.nodes.registerType("whinreceiver", whinreceiver);
+	
 }
