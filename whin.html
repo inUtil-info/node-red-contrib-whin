@@ -3,7 +3,7 @@
         category: 'network',
         color: '#25D366',
         defaults: {
-            name: 	{value:""},
+            name: 	{value:"WHIN-Send"},
             auth:	{value: "", type: "whin-config"}
         },
         inputs:1,
@@ -11,6 +11,21 @@
         icon: "whatsapp-logo.png",
         label: function() {
             return this.name||"whin";
+        }
+    });
+	
+     RED.nodes.registerType('whinreceiver',{
+        category: 'network',
+        color: '#25D366',
+        defaults: {
+            name: 	{value:"WHIN-Receive"},
+            auth:	{value: "", type: "whin-config"}
+        },
+        inputs:0,
+        outputs:1,
+        icon: "whatsapp-logo.png",
+        label: function() {
+            return this.name||"whinreceiver";
         }
     });
 </script>
