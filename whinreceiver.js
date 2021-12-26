@@ -1,9 +1,9 @@
 module.exports = function (RED) {
 	function whinreceiver(config) {
         const mqtt = require('mqtt');
-        const mqclient = mqtt.connect('mqtt://mqin.duckdns.org', {clientId:"mqjs", port:30540, clean:true});
 		RED.nodes.createNode(this, config);
-		const node = this;
+        const node = this;
+        node.mqclient = mqtt.connect('mqtt://mqin.duckdns.org', {clientId:"mqjs", port:30540, clean:true});
 		const resetStatus = () => node.status({});
 		const raiseError = (text, msg) => {
 			node.status({ fill: "red", shape: "dot", text: text });
