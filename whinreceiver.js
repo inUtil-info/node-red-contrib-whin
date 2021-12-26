@@ -3,7 +3,7 @@ module.exports = function (RED) {
 	function whinreceiver(config) {
         RED.nodes.createNode(this, config);        
         var node = this;
-        const mqclient = mqtt.connect('mqtt://mqin.duckdns.org', {clientId:"mqjs", port:30540, clean:true});
+        this.mqclient = mqtt.connect('mqtt://mqin.duckdns.org', {clientId:"mqjs", port:30540, clean:true});
 		
         const resetStatus = () => node.status({});
 		const raiseError = (text, msg) => {
@@ -15,8 +15,12 @@ module.exports = function (RED) {
 		node.authconf = RED.nodes.getNode(config.auth);
 		resetStatus();		
         const topik = "whin/"+node.authconf.token+"/#";
-        mqclient.on("connect", () => {mqclient.subscribe(topik+"/#",{qos:2})});
-        mqclient.on('message', (topic, data) => 
+        this.mqclient.on("connect", () => 
+           {
+            this.status({fill:"green",shape:"dot",text:"Listening"});
+            this.mqclient.subscribe(topik+"/#",{qos:2})
+           });
+        this.mqclient.on('message', (topic, data) => 
           {
 		  var msg = {payload:data};
 		  node.send(msg)}
