@@ -18,15 +18,14 @@ module.exports = function (RED) {
         this.mqclient.on("connect", () => 
            {
             this.status({fill:"green",shape:"dot",text:"Listening"});
-            node.warn("whin/"+topik+"/#");
-            this.mqclient.subscribe("whin/"+topik+"/#",{qos:2})
+            this.mqclient.subscribe(topik,{qos:2})
            });
         this.mqclient.on('message', (topic, data) => 
           {
 		  var msg = {payload:data};
 		  node.send(msg)}
           )
-        mqclient.on("error",()=>{node.error("Error: Whin Receiver not accessible. Please check Internet connection.")});
+        this.mqclient.on("error",()=>{node.error("Error: Whin Receiver not accessible. Please check Internet connection.")});
 	}
 	RED.nodes.registerType("whinreceiver", whinreceiver);	
 }
