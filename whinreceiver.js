@@ -18,7 +18,8 @@ module.exports = function (RED) {
         this.mqclient.on("connect", () => 
            {
             this.status({fill:"green",shape:"dot",text:"Listening"});
-            this.mqclient.subscribe(topik+"/#",{qos:2})
+            node.warn("whin/"+topik+"/#");
+            this.mqclient.subscribe("whin/"+topik+"/#",{qos:2})
            });
         this.mqclient.on('message', (topic, data) => 
           {
