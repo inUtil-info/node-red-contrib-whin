@@ -22,7 +22,7 @@ module.exports = function (RED) {
            });
         this.mqclient.on('message', (topic, data) => 
           {
-		  var msg = {payload:data};
+		  var msg = {payload:data.toString()};
 		  node.send(msg)}
           )
         this.mqclient.on("error",()=>{node.error("Error: Whin Receiver not accessible. Please check Internet connection.")});
