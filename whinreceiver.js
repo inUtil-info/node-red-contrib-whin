@@ -4,13 +4,13 @@ module.exports = function (RED) {
         RED.nodes.createNode(this, config);        
         var node = this;
         const mqclient = mqtt.connect('mqtt://mqin.duckdns.org', {clientId:"mqjs", port:30540, clean:true});
-		/*
+		
         const resetStatus = () => node.status({});
 		const raiseError = (text, msg) => {
 			node.status({ fill: "red", shape: "dot", text: text });
 			node.error(text, msg);
 		};
-        */
+        
 		node.name = config.name;
 		node.authconf = RED.nodes.getNode(config.auth);
 		resetStatus();		
