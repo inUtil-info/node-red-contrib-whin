@@ -1,3 +1,5 @@
+const fs = require("fs");
+const path = require("path");
 module.exports = function (RED) {
 	function WhinNode(config) {
 		var https = require('https');
@@ -42,6 +44,11 @@ module.exports = function (RED) {
             req.end()	;
 		});
 	}
-
+    function token(config){return RED.nodes.getNode(config.auth).token}
+    const subflowFile = path.join (__dirname,"whin-receiver.json");
+    const subflowContents = fs.readFileSync(subflowFile);
+    const subflowJSON = JSON.parse(subflowContents);
+    subflowJSON.flow[1].topic="whin/"+token();
 	RED.nodes.registerType("whin", WhinNode);
+    RED.nodes.registerSubflow(subflowJSON)
 }
