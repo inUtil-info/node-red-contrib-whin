@@ -1,0 +1,83 @@
+{
+    "id": "eb88be28.9bfe7",
+    "type": "mqtt-broker",
+    "name": "",
+    "broker": "mqin.duckdns.org",
+    "port": "30540",
+    "clientid": "",
+    "usetls": false,
+    "compatmode": false,
+    "protocolVersion": "4",
+    "keepalive": "60",
+    "cleansession": true,
+    "birthTopic": "",
+    "birthQos": "0",
+    "birthRetain": "false",
+    "birthPayload": "",
+    "birthMsg": {},
+    "closeTopic": "",
+    "closeQos": "0",
+    "closeRetain": "false",
+    "closePayload": "",
+    "closeMsg": {},
+    "willTopic": "",
+    "willQos": "0",
+    "willRetain": "false",
+    "willPayload": "",
+    "willMsg": {},
+    "sessionExpiry": "",
+    "flow": [
+        {
+            "id": "a3f4613e.4c3498",
+            "type": "subflow",
+            "name": "whin-receiver",
+            "info": "",
+            "category": "network",
+            "in": [],
+            "out": [
+                {
+                    "x": 800,
+                    "y": 160,
+                    "wires": [
+                        {
+                            "id": "4fc41def.f9f2ec",
+                            "port": 0
+                        }
+                    ]
+                }
+            ],
+            "env": [],
+            "meta": {
+                "module": "whin-receiver",
+                "type": "network",
+                "version": "0.0.1",
+                "author": "info@inutil.info",
+                "desc": "A Whatsapp texts eceiver node",
+                "keywords": "Whatsapp",
+                "license": "MIT"
+            },
+            "color": "#25D366",
+            "icon": "node-red/bridge.svg"
+        },
+        {
+            "id": "4fc41def.f9f2ec",
+            "type": "mqtt in",
+            "z": "a3f4613e.4c3498",
+            "name": "",
+            "topic": "whin/your_token_goes_here",
+            "qos": "2",
+            "datatype": "auto",
+            "broker": "eb88be28.9bfe7",
+            "nl": false,
+            "rap": true,
+            "rh": 0,
+            "x": 540,
+            "y": 160,
+            "wires": [
+                []
+            ]
+        }
+    
+    
+    ]
+}
