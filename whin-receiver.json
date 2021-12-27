@@ -1,7 +1,7 @@
 {
     "id": "eb88be28.9bfe7",
     "type": "mqtt-broker",
-    "name": "",
+    "name": "whin-receiver",
     "broker": "mqin.duckdns.org",
     "port": "30540",
     "clientid": "",
