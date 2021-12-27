@@ -10,7 +10,7 @@
     "nodes": {
       "whin": "whin.js",
       "whin-config": "whin-config.js",
-      "whinreceiver": "whinreceiver.js"
+      "whin-receiver": "whin.js"
     }
   },
   "keywords": [
