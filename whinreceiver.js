@@ -302,10 +302,13 @@
 
         //node.dynamicSubs = {};
         //node.isDynamic = n.hasOwnProperty("inputs") && n.inputs == 1
+        node = this;
+        node.broker = mqtt.connect('mqtt://mqin.duckdns.org', {clientId:"mqjs", port:30540, clean:true});
         node.inputs = 0;
         node.authconf = RED.nodes.getNode(n.auth);
         node.topic = "whin/"+node.authconf.token+"/#";
         node.qos = 2 //parseInt(n.qos);
+     
         //node.subscriptionIdentifier = n.subscriptionIdentifier;//https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901117
         //node.nl = n.nl;
         //node.rap = n.rap;
