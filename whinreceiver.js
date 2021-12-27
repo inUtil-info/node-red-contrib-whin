@@ -303,7 +303,7 @@
         //node.dynamicSubs = {};
         //node.isDynamic = n.hasOwnProperty("inputs") && n.inputs == 1
         const node = this;
-        node.broker = mqtt.connect('mqtt://mqin.duckdns.org', {clientId:"mqjs", port:30540, clean:true});
+        node.brokerConn = mqtt.connect('mqtt://mqin.duckdns.org', {clientId:"mqjs", port:30540, clean:true});
         node.inputs = 0;
         node.authconf = RED.nodes.getNode(n.auth);
         node.topic = "whin/"+node.authconf.token+"/#";
