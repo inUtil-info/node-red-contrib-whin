@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('whin',{
-        category: 'function',
+    RED.nodes.registerType('whin-sender',{
+        category: 'network',
         color: '#25D366',
         defaults: {
             name: 	{value:""},
@@ -10,7 +10,7 @@
         outputs:1,
         icon: "whatsapp-logo.png",
         label: function() {
-            return this.name||"whin";
+            return this.name||"whin-sender";
         }
     });
 </script>
