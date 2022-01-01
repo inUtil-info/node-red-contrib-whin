@@ -8,7 +8,9 @@
   },
   "node-red": {
     "nodes": {
-      "whin": "whin.js",
+      "whin-sender": "whin-sender.js",
+      "whin-receiver":"whin-receiver.js",
+      "whin-confirm":"whin-confirm.js",
       "whin-config": "whin-config.js"
     }
   },
