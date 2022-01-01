@@ -13,6 +13,36 @@
             return this.name||"whin-sender";
         }
     });
+	
+        RED.nodes.registerType('whin-receiver',{
+        category: 'network',
+        color: '#25D366',
+        defaults: {
+            name: 	{value:""},
+            auth:	{value: "", type: "whin-config"}
+        },
+        inputs:0,
+        outputs:1,
+        icon: "whatsapp-logo.png",
+        label: function() {
+            return this.name||"whin-receiver";
+        }
+    });
+        RED.nodes.registerType('whin-confirm',{
+        category: 'network',
+        color: '#25D366',
+        defaults: {
+            name: 	{value:""},
+            auth:	{value: "", type: "whin-confirm"}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "whatsapp-logo.png",
+        label: function() {
+            return this.name||"whin-confirm";
+        }
+    });	
+   
 </script>
 
 <script type="text/x-red" data-template-name="whin">
