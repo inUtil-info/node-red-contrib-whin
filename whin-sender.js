@@ -43,5 +43,5 @@ module.exports = function (RED) {
 		});
 	}
 
-	RED.nodes.registerType("whin", WhinNode);
+	RED.nodes.registerType("whin-sender", WhinNode);
 }
