@@ -1,0 +1,67 @@
+<script type="text/javascript">
+        RED.nodes.registerType('whin-confirm',{
+        category: 'network',
+        color: '#25D366',
+        defaults: {
+            name: 	{value:""},
+            auth:	{value: "", type: "whin-confirm"}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "whatsapp-logo.png",
+        label: function() {
+            return this.name||"whin-confirm";
+        }
+    });	
+   
+</script>
+
+<script type="text/x-red" data-template-name="whin">
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+		
+    <div class="form-row">
+        <label for="node-input-auth"><i class="icon-tag"></i> Auth</label>
+        <input type="text" id="node-input-auth" placeholder="Auth">
+    </div>
+	
+	
+</script>
+
+<script type="text/x-red" data-help-name="whin">
+<h1 id="node-red-contrib-whin">node-red-contrib-whin</h1>
+<p>Node-red nodes that allow users to send Whatsapp text to one&#39;s mobile.</p>
+<h2 id="set-up-and-usage-">Set-up and Usage:</h2>
+<p>This package contains a configuration node, and a sender node which acts as a WhatsApp endpoint. 
+The only thing required is a token, that can be retrieved by setting up Whin. To do so, just send a
+text Whatsapp with your mobile to +34 613 164 997 including the word signup, and you will get your token in a response text.</p>
+<p>Open the configuration node and fill in the fields <em>Phone</em> and <em>Token</em>, and you&#39;ll be all set.
+Note that the Phone and Token values are linked, this means that the node wont work if the phone
+number used to get the token is not matching the one you used to get the token. This is done to prevent spam.</p>
+<p>Your token is valid for 30 days. We set the Time-To-Live of 30 days everytime you send a whatsapp
+message using the node. Keep using the service from time to time, and it won&#39;t expire.
+If you, for whatever reason, do not use the service for 30 days, you can get a new token repeating 
+the process described above.</p>
+<h2 id="terms-of-use-">Terms of use:</h2>
+<p>The service is free, you do not need to register, and we do not gather any Personal Info. 
+We understand that the user sending the sign-up message wishes to use the service. The service is just 
+sending whatsapp messages to the number that orginated the request. We do not share the numbers using the
+service with anyone. We do not send messages to our users.</p>
+<p>There is an hourly rate limit set to 100 messages per user.</p>
+<p>If you wish to stop using the service, you just want to stop using the node and your token will be
+deleted after 30 days.</p>
+<h2 id="types-of-messages-">Types of messages:</h2>
+<p>At the moment, the only type of messages we route are text messages. </p>
+<h2 id="error-handling-">Error handling:</h2>
+<p>There are two types of errors that you can get when using the node:</p>
+<ol>
+<li>Token - Number pair invalid. This means, very likely, that you did a mistake on your number / token values on the config node</li>
+<li>Token do not exist: You either did not complete the sign-up step, or your token has expired (due to 30 days of inactivity)</li>
+</ol>
+<h2 id="sending-a-text-message-">Sending a text message:</h2>
+<p>Once config node is set up, all you need to do is to pass the text to be sent in the msg.payload </p>
+		
+</script>
