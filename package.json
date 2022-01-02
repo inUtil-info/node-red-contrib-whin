@@ -4,7 +4,7 @@
   "version": "0.0.12",
   "repository": {
     "type": "git",
-    "url": "https://github.com/inutil-info/node-red-contrib-whin.git"
+    "url": "git+https://github.com/inutil-info/node-red-contrib-whin.git"
   },
   "node-red": {
     "nodes": {
