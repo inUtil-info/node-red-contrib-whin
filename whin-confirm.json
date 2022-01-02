@@ -17,7 +17,7 @@
         "closePayload": "",
         "willTopic": "",
         "willQos": "0",
-        "willPayload": ""
+        "willPayload": "",
         "flow":[
     {
         "id": "4b5d048900308ea0",
