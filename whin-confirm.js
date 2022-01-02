@@ -6,6 +6,6 @@
      const subflowContents = fs.readFileSync(subflowFile);
      const subflowJSON = JSON.parse(subflowContents);
      //RED.nodes.createNode(config);
-     const authconf = RED.nodes.getNode(config.auth); //hoping authconf will be accessible to the subflow
+     //const authconf = RED.nodes.getNode(config.auth); //hoping authconf will be accessible to the subflow
      RED.nodes.registerSubflow(subflowJSON);
  }
