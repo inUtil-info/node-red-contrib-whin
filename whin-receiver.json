@@ -54,7 +54,7 @@
         "type": "mqtt in",
         "z": "f2cb1fae.8dd8d",
         "name": "",
-        "topic": "whin/"+authconf.token+"/#",
+        "topic": "whin/#",
         "qos": "2",
         "datatype": "auto",
         "broker": "98e19a26.6f8758",
