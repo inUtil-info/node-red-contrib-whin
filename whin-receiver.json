@@ -148,7 +148,7 @@
         "type": "function",
         "z": "f2cb1fae.8dd8d",
         "name": "",
-        "func": "msg.action=\"subscribe\";\nmsg.topic=\"whin/#\";\nreturn msg;",
+        "func": "msg.action=\"subscribe\";\nmsg.topic=token;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
