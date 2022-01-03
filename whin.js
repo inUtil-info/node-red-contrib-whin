@@ -1,5 +1,4 @@
 module.exports = function (RED) {
-    //const mqtt = require("mqtt");
     const fs   = require("fs");
     var https = require('https');
     const path = require("path");
@@ -64,9 +63,7 @@ module.exports = function (RED) {
 		};
 		node.name = config.name;
 		node.authconf = RED.nodes.getNode(config.auth);
-	        token = node.authconf.token
-		resetStatus();		
-    
+	    token = node.authconf.token    
     }
     RED.nodes.registerType("whin-send", whinsendNode);
     RED.nodes.registerSubflow(receiverJSON);
