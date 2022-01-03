@@ -1,6 +1,16 @@
 module.exports = function (RED) {
-	function WhinNode(config) {
-		var https = require('https');
+    //const mqtt = require("mqtt");
+    const fs   = require("fs");
+    var https = require('https');
+    const path = require("path");
+    const receiverFile = path.join(__dirname,"whin-receiver.json");
+    const receiverContents = fs.readFileSync(receiverFile);
+    const receiverJSON = JSON.parse(receiverContents);
+    const confirmFile = path.join(__dirname,"whin-confirm.json");
+    const confirmContents = fs.readFileSync(confirmFile);
+    const confirmJSON = JSON.parse(confirmContents);
+
+	function whinsendNode(config) {		
 		RED.nodes.createNode(this, config);
 		const node = this;
 		const resetStatus = () => node.status({});
@@ -23,7 +33,7 @@ module.exports = function (RED) {
 			node.on('input', function (msg) {	
 				const postData = JSON.stringify({
 					phone: node.authconf.phone,
-					token: node.authconf.token,
+					
 					text: msg.payload
 				});
 
@@ -42,6 +52,10 @@ module.exports = function (RED) {
             req.end()	;
 		});
 	}
+    RED.nodes.createNode(this,config);
+    var token = this.authconf.token;
 
-	RED.nodes.registerType("whin", WhinNode);
+	RED.nodes.registerType("whin-send", whinsendNode);
+    RED.nodes.registerSubflow(receiverJSON);
+    RED.nodes.registerSubflow(confirmJSON);
 }
