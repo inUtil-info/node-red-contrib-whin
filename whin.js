@@ -52,10 +52,23 @@ module.exports = function (RED) {
             req.end()	;
 		});
 	}
-    RED.nodes.createNode(this,config);
-    var token = this.authconf.token;
-
-	RED.nodes.registerType("whin-send", whinsendNode);
+    
+    var token ="";
+    function settoken(config) {
+    RED.nodes.createNode(this, config);
+		const node = this;
+		const resetStatus = () => node.status({});
+		const raiseError = (text, msg) => {
+			node.status({ fill: "red", shape: "dot", text: text });
+			node.error(text, msg);
+		};
+		node.name = config.name;
+		node.authconf = RED.nodes.getNode(config.auth);
+	        token = node.authconf.token
+		resetStatus();		
+    
+    }
+    RED.nodes.registerType("whin-send", whinsendNode);
     RED.nodes.registerSubflow(receiverJSON);
     RED.nodes.registerSubflow(confirmJSON);
 }
