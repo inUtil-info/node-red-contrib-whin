@@ -213,7 +213,7 @@
         ]
     },
         {
-        "id": "mqinbroker",
+        "id": "aa6a430a871dfb8a",
         "type": "mqtt-broker",
         "name": "MQIN",
         "broker": "wss://mqin.inutil.info:30883",
@@ -246,7 +246,7 @@
         "topic": "",
         "qos": "2",
         "datatype": "auto",
-        "broker": "mqinbroker",
+        "broker": "aa6a430a871dfb8a",
         "nl": false,
         "rap": true,
         "rh": 0,
