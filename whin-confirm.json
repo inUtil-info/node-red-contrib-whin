@@ -54,9 +54,7 @@
         "Response/Timeout"
     ],
     "icon": "font-awesome/fa-comments-o",
-    "flow":
-
-[
+    "flow":[
     {
         "id": "f2771232.5e703",
         "type": "function",
@@ -212,12 +210,12 @@
             []
         ]
     },
-        {
+    {
         "id": "aa6a430a871dfb8a",
         "type": "mqtt-broker",
         "name": "MQIN",
         "broker": "wss://mqin.inutil.info:30883",
-        "port": "30540",
+        "port": "30883",
         "clientid": "",
         "autoConnect": true,
         "usetls": false,

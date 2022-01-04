@@ -85,12 +85,12 @@
         "y": 80,
         "wires": []
     },
-        {
+    {
         "id": "aa6a430a871dfb8a",
         "type": "mqtt-broker",
         "name": "MQIN",
         "broker": "wss://mqin.inutil.info:30883",
-        "port": "30540",
+        "port": "30883",
         "clientid": "",
         "autoConnect": true,
         "usetls": false,
