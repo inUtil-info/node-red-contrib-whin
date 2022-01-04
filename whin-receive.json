@@ -201,27 +201,6 @@
                 "d5cf8610e4904b57"
             ]
         ]
-    },
-    {
-        "id": "98e19a26.6f8758",
-        "type": "mqtt-broker",
-        "name": "",
-        "broker": "wss://mqin.inutil.info:30883",
-        "port": "1883",
-        "clientid": "",
-        "usetls": false,
-        "compatmode": false,
-        "keepalive": "60",
-        "cleansession": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": "",
-        "closeTopic": "",
-        "closeQos": "0",
-        "closePayload": "",
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": ""
     }
 
 ]}
