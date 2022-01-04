@@ -1,15 +1,4 @@
-
-
-
 module.exports = function (RED) {
-	const fs = require("fs");
-        const path = require("path");
-	const receiveFile = path.join(__dirname,"whin-recieve.json");
-        const receiveContents = fs.readFileSync(receiveFile);
-        const receiveJSON = JSON.parse(receiveContents);
-	const confirmFile = path.join(__dirname,"whin-confirm.json");
-        const confirmContents = fs.readFileSync(confirmFile);
-        const confirmJSON = JSON.parse(confirmContents);
 	function WhinNode(config) {
 		var https = require('https');
 		RED.nodes.createNode(this, config);
@@ -55,6 +44,4 @@ module.exports = function (RED) {
 	}
 
 	RED.nodes.registerType("whin", WhinNode);
-	RED.nodes.registerSubflow(receiveJSON);
-	RED.nodes.registerSubflow(confirmJSON);
 }
