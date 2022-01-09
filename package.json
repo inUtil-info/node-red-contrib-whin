@@ -1,32 +1,15 @@
 {
-  "name": "node-red-contrib-whin",
-  "description": "Whatsapp self notification",
-  "version": "0.0.21",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/inutil-info/node-red-contrib-whin.git"
-  },
+  "name": "whin",
+  "version": "0.1.0",
+  "description": "JS Frontend for Inutil's Whatsapp Cloud Services Backend",
+  "main": "whin.js",
   "node-red": {
     "nodes": {
-      "whin-send": "whin.js",
-      "whin-config": "whin-config.js",
-      "whin-receive":"whin-receive.js",
-      "whin-confirm":"whin-confirm.js"
-    }
-  },
-  "keywords": [
-    "node-red",
-    "whin",
-    "whatsapp"
-  ],
-  "main": "index.js",
-  "license": "MIT",
-  "author": "inutil",
-  "bugs": {
-    "url": "https://github.com/inutil-info/node-red-contrib-whin/issues"
-  },
-  "homepage": "https://github.com/inutil-info/node-red-contrib-whin#readme",
+      "whin-send":   "whin.js"
+    }},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  }
+  },
+  "author": "info@inutil.info",
+  "license": "ISC"
 }
