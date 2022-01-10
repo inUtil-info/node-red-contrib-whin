@@ -1,7 +1,7 @@
 {
   "name": "node-red-contrib-whin",
   "version": "0.1.0",
-  "description": "JS Frontend for Inutil's Whatsapp Cloud Services Backend",
+  "description": "Whatsapp Gateway nodes to send & receive",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/inutil-info/node-red-contrib-whin.git"
@@ -24,5 +24,5 @@
     "url": "https://github.com/inutil-info/node-red-contrib-whin/issues"
   },
   "homepage": "https://github.com/inutil-info/node-red-contrib-whin#readme",
-  "license": "ISC"
+  "license": "MIT"
 }
