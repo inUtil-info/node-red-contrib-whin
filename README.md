@@ -1,14 +1,17 @@
-# node-red-contrib-whin
-Node-red nodes that allow users to send Whatsapp text to one's mobile.
-
+# Summary
+Node-red nodes that allow users to send 2-way Whatsapp communication with one's mobile.
+The package includes three nodes:
+whin-send, to send out whatsapp texts from your NR flows to your whatsapp number.
+whin-receive, to inject whatsapp texts from your whatsapp client into your NR flows.
+whin-confirm, to allow you to ask, in the middle of a flow, for an active user confirmation about something and use the response as data into the flow.
 
 ## Set-up and Usage:
-Before using this node, we strongly recommend you read this FAQ first:
+While we have not implemented military-class security here, we have done our best to secure communications.
+However, before using this node, we strongly recommend you read this Security FAQ first:
 https://github.com/inUtil-info/node-red-contrib-whin/wiki/FAQ
 
-This package contains a configuration node, and a sender node which acts as a WhatsApp endpoint. 
-The only thing required is a token, that can be retrieved by setting up Whin. To do so just send a
-text Whatsapp with your mobile to +34 613 164 997 including the word *signup*, and you will get your token in a response text.
+The three nodes share a configuration node that will store your phone and private token.
+To get your token, just send a text Whatsapp with your mobile to +34 613 164 997 including the word *signup*, and you will get your token in a response text.
 
 If you click on this link: https://wa.me/34613164997?text=signup all you need is click send from within whatsapp and you'll get your token.
 
@@ -18,7 +21,6 @@ To set up whin: open the configuration node and fill in the fields *Phone* and *
 
 - *Phone* field has the following format: countrycode and number, without spaces; example for Spain: 346XXYYYZZZ
 - *Token* field has the following format: hex string, with 40 characters, no spaces; example: 21f5da020bad5919d1fba72e74c15da5881efb4a
-
 
 
 Note that the Phone and Token values are linked, this means that the node wont work if the phone
@@ -36,8 +38,8 @@ the process described above.
 
 
 ## Types of messages:
-At the moment, the only type of messages we route are text messages (strings). This is not preventing you from
-sending json data, or any other data format you stringfy first.
+At the moment, the only type of messages we route are text messages (UTF8 strings). This is not preventing you from
+sending json data, or any other data format you stringify first.
 
 ## Whin Nodes:
 When you install this package, you will get the following Nodes available on Node-red palette under the Network category: whin-receive, whin-send and whin-confirm. These Nodes rely on a configuration Node called wihn-config (not visible on your palette) which you will use to enter your credentials, as shown below.
@@ -65,7 +67,8 @@ Bear in mind:
 
 ### Receiver Node (whin-receive):
 (completar)
-If you completed the config fields before, you are all set. There are no fields that you have to edit to start sending a whatsapp message. 
+If you completed the config fields before, you are all set. There are no fields that you have to edit to start sending a whatsapp message.
+Just connect the node output to your flow, deploy, and you'll be all set.
 
 ![config-node](./icons/sender-node.png)
 
@@ -80,7 +83,18 @@ Bear in mind:
 
 
 ### Confirmation Node (whin-confirm):
-(completar)
+whin-confirm is a little tricky yet a very useful tool with the right setup. Conceptually is like a back-channel authorisation to proceed in the development of a specific course of action. 
+
+whin-confirm node will take two inputs, a question on the msg.payload property and a time-to-live (ttl) in the msg.ttl expressed in miliseconds.
+
+When node receives the input, it will trigger a buttons-formatted message to your phone with the question you are expected a response for. If, response does not hit the node back in the expected ttl, the node will fire a TimeOut message. Alternatively, if the user responds through the Whatsapp buttons, the answer shall be fired on the node output.
+
+Be mindful that if there is a whin-receive node running in parallel, the response will flow through both listeners. In that case, you might notice a difference.
+whin-confirm will output Yes, No, or TimeOut while your whin-receive node will receive whatever the answer is together with a 'request ID'. That's the raw response.
+
+The backend controls the message expirity as well and, should you exhust the ttl, will respond directly in your phone and won't send the response to the NR client.
+
+
 If you completed the config fields before, you are all set. There are no fields that you have to edit to start sending a whatsapp message. 
 
 ![config-node](./icons/sender-node.png)
