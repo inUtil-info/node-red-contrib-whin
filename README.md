@@ -34,33 +34,22 @@ the process described above.
 
 ![whin-nodes](./icons/whin.png)
 
-## Terms of use:
-The service is free, you do not need to register, and we do not gather any Personal Info. 
-We understand that the user sending the sign-up message wishes to use the service. The service is just 
-sending whatsapp messages to the number that orginated the request. We do not share the numbers using the
-service with anyone, nor we send messages to our users.
-There is an hourly rate limit set to 100 messages per user. The limit can and will be raised in the future, 
-when the testing period ends.
-If you wish to stop using the service, you just want to stop using the node and your token will be
-deleted after 30 days.
 
 ## Types of messages:
 At the moment, the only type of messages we route are text messages (strings). This is not preventing you from
 sending json data, or any other data format you stringfy first.
 
-## Error handling:
-There are two types of errors that you can get when using the node:
-  1. Token - Number pair invalid. This means, very likely, that you did a mistake on your number / token values on the config node
-  2. Token do not exist: You either did not complete the sign-up step, or your token has expired (due to 30 days of inactivity)
+## Whin Nodes:
+When you install this package, you will get the following Nodes available on Node-red palette under the Network category: whin-receive, whin-send and whin-confirm. These Nodes rely on a configuration Node called wihn-config (not visible on your palette) which you will use to enter your credentials, as shown below.
 
-## Configuration Node:
+
+### Configuration Node:
 These are the fields that you need to complete to set up the whin config node:
 
-![config-node](./icons/config-node.png)
+![config-node](./icons/config-node.png)holds
 
 
-
-## Sender Node:
+### Sender Node (whin-send):
 If you completed the config fields before, you are all set. There are no fields that you have to edit to start sending a whatsapp message. 
 
 ![config-node](./icons/sender-node.png)
@@ -73,7 +62,40 @@ Bear in mind:
 
 ![config-node2](./icons/config-node2.png)
 
-## Sample Flow:
+
+### Receiver Node (whin-receive):
+(completar)
+If you completed the config fields before, you are all set. There are no fields that you have to edit to start sending a whatsapp message. 
+
+![config-node](./icons/sender-node.png)
+
+Bear in mind: 
+- Do NOT include '+' before your countrycode,
+- Do NOT include a '-', or any other character or space (anything which is not a number) as part of your phone number.
+- If you do not know, or are not sure of, which is your country code check this: https://countrycode.org/
+- Make sure the token has no spaces before or after:
+
+![config-node2](./icons/config-node2.png)
+
+
+
+### Confirmation Node (whin-confirm):
+(completar)
+If you completed the config fields before, you are all set. There are no fields that you have to edit to start sending a whatsapp message. 
+
+![config-node](./icons/sender-node.png)
+
+Bear in mind: 
+- Do NOT include '+' before your countrycode,
+- Do NOT include a '-', or any other character or space (anything which is not a number) as part of your phone number.
+- If you do not know, or are not sure of, which is your country code check this: https://countrycode.org/
+- Make sure the token has no spaces before or after:
+
+![config-node2](./icons/config-node2.png)
+
+
+
+## Sample Flows:
 
 We are including a very simple flow that will send a whatsapp, you can use it to bootstrap your own use cases. 
 
@@ -89,3 +111,17 @@ You can inport this simple flow, just edit the config fields; add your phone/tok
 
 ![flow](./icons/simple-flow.png)
 
+## Error handling:
+There are two types of errors that you can get when using the nodes:
+  1. Token - Number pair invalid. This means, very likely, that you did a mistake on your number / token values on the config node
+  2. Token do not exist: You either did not complete the sign-up step, or your token has expired (due to 30 days of inactivity)
+
+## Terms of use:
+The service is free, you do not need to register, and we do not gather any Personal Info. 
+We understand that the user sending the sign-up message wishes to use the service. The service is just 
+sending whatsapp messages to the number that orginated the request. We do not share the numbers using the
+service with anyone, nor we send messages to our users.
+There is an hourly rate limit set to 100 messages per user. The limit can and will be raised in the future, 
+when the testing period ends.
+If you wish to stop using the service, you just want to stop using the node and your token will be
+deleted after 30 days.
