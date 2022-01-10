@@ -82,7 +82,7 @@ module.exports = function (RED) {
         if (this.mode === "cbc") {
           return this.encryptCBC(string, iv);
         }
-        throw new Error("Неизвестный режим шифрования.");
+        throw new Error("Modo de cifrado desconocido.");
       },
       decrypt: function(string, iv) {
         if (this.mode === "ecb") {
@@ -92,7 +92,7 @@ module.exports = function (RED) {
         if (this.mode === "cbc") {
           return this.decryptCBC(string, iv);
         }
-        throw new Error("Неизвестный режим шифрования.");
+        throw new Error("Modo de cifrado desconocido");
       },
     
       encryptECB: function(string) {
@@ -158,11 +158,11 @@ module.exports = function (RED) {
       },
     
       /**
-       * Расшифровать в режиме ECB
-       * (приватный метод)
-       * @param {string} string шифруемая строка
-       * @throws {Error} кидает исключение если зашифрованная строка повреждена
-       * @return {string} зашифрованная строка
+       * descifrar en modo ECB
+       * (metodo privado)
+       * @param {string} string cadena cifrada
+       * @throws {Error} excepcion si la cadena cifrada se ha dañado
+       * @return {string} cadena cifrada
        */
       decryptECB: function(string) {
         var blocks = Math.ceil(string.length/8);
@@ -171,7 +171,7 @@ module.exports = function (RED) {
         for (var i = 0; i < blocks; i++) {
           var block = string.substr(i * 8, 8);
           if (block.length < 8) {
-            throw new Error("Зашифрованная строка повреждена: длинна зашифрованной строки должна быть кратна 8 баыйтам.");
+            throw new Error("La cadena cifrada está dañada: la longitud de la cadena cifrada debe ser un múltiplo de 8 bytes.");
           }
           var xL, xR, xLxR;
     
@@ -200,7 +200,7 @@ module.exports = function (RED) {
         for (var i = 0; i < blocks; i++) {
           var block = string.substr(i * 8, 8);
           if (block.length < 8) {
-            throw new Error("Зашифрованная строка повреждена: длинна зашифрованной строки должна быть кратна 8 байтам.");
+            throw new Error("La cadena cifrada está dañada: la longitud de la cadena cifrada debe ser un múltiplo de 8 bytes.");
           }
           var xL, xR, xLxR;
           xLxR = this.split64by32(block);
@@ -341,7 +341,7 @@ module.exports = function (RED) {
       },
     
       addMod32: function(a, b) {
-        return this.fixNegative((a + b) | 0);  // | 0 приводит к 32битному значению
+        return this.fixNegative((a + b) | 0);  // | 0 es un valor de 32 bits
       },
     
       fixNegative: function(number) {
@@ -374,7 +374,7 @@ module.exports = function (RED) {
       },
     
       /**
-       * Преобразует байтовую-строку utf8 в строку javascript
+       * Convierte la cadena de bytes utf8 en una cadena javascript
        */
       utf8Encode: function (utftext) {
         var string = "";
@@ -732,7 +732,7 @@ module.exports = function (RED) {
         if (this.mode === "cbc") {
           return this.encryptCBC(string, iv);
         }
-        throw new Error("Неизвестный режим шифрования.");
+        throw new Error("Modo de cifrado desconocido.");
       },
       decrypt: function(string, iv) {
         if (this.mode === "ecb") {
@@ -742,7 +742,7 @@ module.exports = function (RED) {
         if (this.mode === "cbc") {
           return this.decryptCBC(string, iv);
         }
-        throw new Error("Неизвестный режим шифрования.");
+        throw new Error("Modo de cifrado desconocido.");
       },
     
       encryptECB: function(string) {
@@ -808,11 +808,11 @@ module.exports = function (RED) {
       },
     
       /**
-       * Расшифровать в режиме ECB
-       * (приватный метод)
-       * @param {string} string шифруемая строка
-       * @throws {Error} кидает исключение если зашифрованная строка повреждена
-       * @return {string} зашифрованная строка
+       * Descifrar en modo ECB
+       * (método privado)
+       * @param {string} string cadena encriptada
+       * @throws {Error} lanza una excepción si la cadena cifrada está dañada
+       * @return {string} cadena encriptada
        */
       decryptECB: function(string) {
         var blocks = Math.ceil(string.length/8);
@@ -821,7 +821,7 @@ module.exports = function (RED) {
         for (var i = 0; i < blocks; i++) {
           var block = string.substr(i * 8, 8);
           if (block.length < 8) {
-            throw new Error("Зашифрованная строка повреждена: длинна зашифрованной строки должна быть кратна 8 баыйтам.");
+            throw new Error("La cadena cifrada está dañada: la longitud de la cadena cifrada debe ser un múltiplo de 8 bytes.");
           }
           var xL, xR, xLxR;
     
@@ -850,7 +850,7 @@ module.exports = function (RED) {
         for (var i = 0; i < blocks; i++) {
           var block = string.substr(i * 8, 8);
           if (block.length < 8) {
-            throw new Error("Зашифрованная строка повреждена: длинна зашифрованной строки должна быть кратна 8 байтам.");
+            throw new Error("La cadena cifrada está dañada: la longitud de la cadena cifrada debe ser un múltiplo de 8 bytes.");
           }
           var xL, xR, xLxR;
           xLxR = this.split64by32(block);
@@ -991,7 +991,7 @@ module.exports = function (RED) {
       },
     
       addMod32: function(a, b) {
-        return this.fixNegative((a + b) | 0);  // | 0 приводит к 32битному значению
+        return this.fixNegative((a + b) | 0);  // | 0 resulta en un valor de 32 bits
       },
     
       fixNegative: function(number) {
@@ -1024,7 +1024,7 @@ module.exports = function (RED) {
       },
     
       /**
-       * Преобразует байтовую-строку utf8 в строку javascript
+       * Convierte la cadena de bytes utf8 en una cadena javascript
        */
       utf8Encode: function (utftext) {
         var string = "";

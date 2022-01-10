@@ -1,16 +1,15 @@
 # Summary
 Node-red nodes that allow users to keep a 2-way Whatsapp communication with one's mobile.
 The package includes three nodes:
-whin-send, to send out whatsapp texts from your NR flows to your whatsapp number.
-whin-receive, to inject whatsapp texts from your whatsapp client into your NR flows.
-whin-confirm, to allow you to, in the middle of a flow, ask for an active user confirmation about something and use the response as data into the flow.
+- whin-send, to send out whatsapp texts from your NR flows to your whatsapp number.
+- whin-receive, to inject whatsapp texts from within whatsapp into node-red flows.
+- whin-confirm, think of it as a confirmation gate; when used in the middle of a flow, you can request permission to proceed the execution of the flow. You request an active user confirmation, sent to whatsapp; when answered, you will get the response provided as data payload back into the flow.
 
 ## Set-up and Usage:
-While we have not implemented military-class security here, we have done our best to secure communications.
-However, before using this node, we strongly recommend you read this Security FAQ first:
+Before using this node, we strongly recommend you read the FAQ first:
 https://github.com/inUtil-info/node-red-contrib-whin/wiki/FAQ
 
-The three nodes share a configuration node that will store your phone and private token.
+The three nodes described above share a configuration node that stores your phone and private token.
 To get your token, just send a text Whatsapp with your mobile to +34 613 164 997 including the word *signup*, and you will get your token in a response text.
 
 If you click on this link: https://wa.me/34613164997?text=signup all you need is click send from within whatsapp and you'll get your token.
@@ -26,10 +25,9 @@ To set up whin: open the configuration node and fill in the fields *Phone* and *
 Note that the Phone and Token values are linked, this means that the node wont work if the phone
 number used to get the token is not matching the one you used to get the token. This is to prevent spam.
 
-Your token is valid for 30 days. We set the Time-To-Live of 30 days everytime you send a whatsapp
-message using the node. Keep using the service from time to time, and it won't expire.
-If for whatever reason you do not use the service for 30 days, your token will be removed. You can get a new token repeating 
-the process described above.
+The token is valid for 30 days. Everytime you send a whatsapp message using whin-send node, Time-To-Live is reset to 30 days. Keep using the service from time to time, and it won't expire.
+If for whatever reason you do not use the service for 30 days, your token will be removed from the cache. 
+Dont panic, you can get a new token repeating the signup process.
 
 
 ### Set-up and usage flow:
@@ -38,17 +36,18 @@ the process described above.
 
 
 ## Types of messages:
-At the moment, the only type of messages we route are text messages (UTF8 strings). This is not preventing you from
-sending json data, or any other data format you stringify first.
+At the moment, the only type of messages we route are text messages (UTF8 strings). This is not preventing you from sending json data, or any other data format you stringify first.
 
 ## Whin Nodes:
-When you install this package, you will get the following Nodes available on Node-red palette under the Network category: whin-receive, whin-send and whin-confirm. These Nodes rely on a configuration Node called wihn-config (not visible on your palette) which you will use to enter your credentials, as shown below.
+When you install node-red-contrib-whin package, you will get the following Nodes available on node-red Palette under the Network category: whin-receive, whin-send and whin-confirm. These Nodes rely on a configuration Node called whin-config (not visible on the editor Palette).
+
 
 
 ### Configuration Node:
-These are the fields that you need to complete to set up the whin onfig node:
+This node will be used to enter your credentials as shown below; each credentials pair (phone and token) will be available and shared among all whin nodes.
+These are the fields that you need to complete to set up the whin-config node:
 
-![config-node](./icons/config-node.png)holds
+![config-node](./icons/config-node.png)
 
 Bear in mind: 
 - Do NOT include '+' before your countrycode,
@@ -60,10 +59,11 @@ Bear in mind:
 
 
 ### Sender Node (whin-send):
-If you completed the config fields above, you are all set.  Just select the configuration:
+This is the node we recomend you start using. If you completed and saved the config, you are all set.  Just select the configuration (next to Auth on the pic):
 ![sender-node](./icons/sender-node.png)
 
-Now, just inject your text and it shall pop up at the other end.
+
+Wire an inject node to whin-send, press inject, and you should receive a whatsapp including the text. Anything that comes in whin-send as data payload will be sent.
 
 ![sender-node2](./icons/send_flow.png)
 
@@ -71,29 +71,30 @@ Now, just inject your text and it shall pop up at the other end.
 
 
 ### Receiver Node (whin-receive):
-(completar)
-If you completed the config fields before, you are all set. You'll have to just, as in the whin-send node, select your whin configuration.
-Then, just connect the node output to your flow, deploy, and you'll be all set. Messages sent to +34613164997 from your Whatsapp should pop here.
+Whin-receive node will allow you sending whatsapps to your node-red environment, any text message you send to the whin number used to sign-up and get the token, will be received and treated as message payload by whin-receive.
 You might create your own syntax to trigger stuff in your NR. Switching on lights or music, disconnect the alarm or run a sales report. Sky is the limit.
 
 ![receiver-node](./icons/receive_flow.png)
 
 
 ### Confirmation Node (whin-confirm):
-whin-confirm is a little tricky yet a very useful tool with the right setup. Conceptually is like a back-channel authorisation to proceed in the development of a specific course of action. Some services will send send you today an SMS with a code you need to paste to proceed. This is more secure and you respond through a simple button. This allows flows that require an autorisation without manual interaction over NR.
+whin-confirm node will take two inputs: a question and a time period. The question goes in on the msg.payload property and a time-to-live (ttl) in the msg.ttl property (this integer number is treated as time, expressed in miliseconds).
 
-whin-confirm node will take two inputs, a question on the msg.payload property and a time-to-live (ttl) in the msg.ttl expressed in miliseconds.
+When the node is triggered, it will send you a whatsapp with the question you entered on the payload, and you will have a time to answer it (yes/no). 
+If you click "Yes" on whatsapp, you will get a "Yes" as output of the node.
+If you click "No", you will get it on node-red too.
+If you reach the ttl and provide no answer, the node will default to a "Time-out" message. 
+
+We like to think of it as the SMS / push-notifications you get from your bank these days, but answered with a simple button. The main use-case here is allowing you to "authorize" the execution of a flow branch that you don't want to run without manual intervention on node-red.
 
 ![confirm-node](./icons/confirm_inputs.jpg)
 
-When node receives the input, it will trigger a buttons-formatted message to your phone with the question you are expected a response for. If, response does not hit the node back in the expected ttl, the node will fire a TimeOut message. Alternatively, if the user responds through the Whatsapp buttons, the answer shall be fired on the node output.
-
 Be mindful that if there is a whin-receive node running in parallel, the response will flow through both listeners. In that case, you might notice a difference.
-whin-confirm will output Yes, No, or TimeOut while your whin-receive node will receive whatever the answer is together with a 'request ID'. That's the raw response.
+whin-confirm will output Yes, No, or TimeOut while your whin-receive node will receive whatever the answer is together with a 'unique request identifier'. That's the raw response.
 
-Thre's plenty of situations where one wants to grant instanct permission, like door opening, or a server restart based on some alert. You're out or simply away of your desk. You get the request, you authorise, decline or ignore it.
+There's plenty of use-cases where one wants to grant permission to a flow, like: door opening, a server restart based on some alert / timing. In plain english: You get the request, you authorise, decline or ignore it.
 
-The backend controls the message expirity as well and, should you exhust the ttl, will respond directly in your phone and won't send the response to the NR client.
+The backend controls the message expirity as well and, should you exahust the ttl, will respond directly in your phone and won't send the response back to node-red.
 
 ![confirm-node2](./icons/confirm_flow.jpg)
 
@@ -123,6 +124,11 @@ There are two types of errors that you can get when using the nodes:
 ## Known bugs:
 Occasionally, whin-receive and whin-confirm do not start capturing messages unless a 'deploy' is executed even if there are no changes.
 whin-receive may show the listening status and yet messages may not arrive until a flow redeploy is executed
+
+## Security:
+While we have not implemented military-class security, we have done our best to secure data in transit and at rest.
+However, it's our recommendantion to read carefully the Security questions and answers on our FAQ first:
+https://github.com/inUtil-info/node-red-contrib-whin/wiki/FAQ
 
 ## Terms of use:
 The service is free, you do not need to register, and we do not gather any Personal Info. 
