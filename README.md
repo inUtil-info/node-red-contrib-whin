@@ -72,14 +72,15 @@ Now, just inject your text and it shall pop up at the other end.
 
 ### Receiver Node (whin-receive):
 (completar)
-If you completed the config fields before, you are all set. There are no fields that you have to edit to start sending a whatsapp message.
-Just connect the node output to your flow, deploy, and you'll be all set.
+If you completed the config fields before, you are all set. You'll have to just, as in the whin-send node, select your whin configuration.
+Then, just connect the node output to your flow, deploy, and you'll be all set. Messages sent to +34613164997 from your Whatsapp should pop here.
+You might create your own syntax to trigger stuff in your NR. Switching on lights or music, disconnect the alarm or run a sales report. Sky is the limit.
 
 ![receiver-node](./icons/receive_flow.png)
 
 
 ### Confirmation Node (whin-confirm):
-whin-confirm is a little tricky yet a very useful tool with the right setup. Conceptually is like a back-channel authorisation to proceed in the development of a specific course of action. 
+whin-confirm is a little tricky yet a very useful tool with the right setup. Conceptually is like a back-channel authorisation to proceed in the development of a specific course of action. Some services will send send you today an SMS with a code you need to paste to proceed. This is more secure and you respond through a simple button. This allows flows that require an autorisation without manual interaction over NR.
 
 whin-confirm node will take two inputs, a question on the msg.payload property and a time-to-live (ttl) in the msg.ttl expressed in miliseconds.
 
@@ -90,8 +91,9 @@ When node receives the input, it will trigger a buttons-formatted message to you
 Be mindful that if there is a whin-receive node running in parallel, the response will flow through both listeners. In that case, you might notice a difference.
 whin-confirm will output Yes, No, or TimeOut while your whin-receive node will receive whatever the answer is together with a 'request ID'. That's the raw response.
 
-The backend controls the message expirity as well and, should you exhust the ttl, will respond directly in your phone and won't send the response to the NR client.
+Thre's plenty of situations where one wants to grant instanct permission, like door opening, or a server restart based on some alert. You're out or simply away of your desk. You get the request, you authorise, decline or ignore it.
 
+The backend controls the message expirity as well and, should you exhust the ttl, will respond directly in your phone and won't send the response to the NR client.
 
 ![confirm-node2](./icons/confirm_flow.jpg)
 
@@ -118,12 +120,15 @@ There are two types of errors that you can get when using the nodes:
   1. Token - Number pair invalid. This means, very likely, that you did a mistake on your number / token values on the config node
   2. Token do not exist: You either did not complete the sign-up step, or your token has expired (due to 30 days of inactivity)
 
+## Known bugs:
+Occasionally, whin-receive and whin-confirm do not start capturing messages unless a 'deploy' is executed even if there are no changes.
+whin-receive may show the listening status and yet messages may not arrive until a flow redeploy is executed
+
 ## Terms of use:
 The service is free, you do not need to register, and we do not gather any Personal Info. 
 We understand that the user sending the sign-up message wishes to use the service. The service is just 
 sending whatsapp messages to the number that orginated the request. We do not share the numbers using the
 service with anyone, nor we send messages to our users.
-There is an hourly rate limit set to 100 messages per user. The limit can and will be raised in the future, 
-when the testing period ends.
+For now, there is an hourly rate limit set to 100 messages per user.
 If you wish to stop using the service, you just want to stop using the node and your token will be
 deleted after 30 days.
