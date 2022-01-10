@@ -1,9 +1,9 @@
 # Summary
-Node-red nodes that allow users to send 2-way Whatsapp communication with one's mobile.
+Node-red nodes that allow users to keep a 2-way Whatsapp communication with one's mobile.
 The package includes three nodes:
 whin-send, to send out whatsapp texts from your NR flows to your whatsapp number.
 whin-receive, to inject whatsapp texts from your whatsapp client into your NR flows.
-whin-confirm, to allow you to ask, in the middle of a flow, for an active user confirmation about something and use the response as data into the flow.
+whin-confirm, to allow you to, in the middle of a flow, ask for an active user confirmation about something and use the response as data into the flow.
 
 ## Set-up and Usage:
 While we have not implemented military-class security here, we have done our best to secure communications.
