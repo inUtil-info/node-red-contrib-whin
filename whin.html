@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('whin',{
+    RED.nodes.registerType('whin-send',{
         category: 'network',
         color: '#25D366',
         defaults: {
@@ -8,14 +8,49 @@
         },
         inputs:1,
         outputs:1,
-        icon: "whatsapp-logo.png",
+        icon: "icons/whatsapp-logo.png",
         label: function() {
-            return this.name||"whin";
+            return this.name||"whin-send";
         }
     });
 </script>
 
-<script type="text/x-red" data-template-name="whin">
+<script type="text/javascript">
+    RED.nodes.registerType('whin-receive',{
+        category: 'network',
+        color: '#25D366',
+        defaults: {
+            name:       {value:""},
+            auth:       {value: "", type: "whin-config"}
+        },
+        inputs:0,
+        outputs:1,
+        icon: "icons/whatsapp-rev.png",
+        label: function() {
+            return this.name||"whin-receive";
+        }
+    });
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('whin-confirm',{
+        category: 'network',
+        color: '#25D366',
+        defaults: {
+            name:       {value:""},
+            auth:       {value: "", type: "whin-config"}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "icons/whatsapp-conf.png",
+        label: function() {
+            return this.name||"whin-confirm";
+        }
+    });
+</script>
+
+
+<script type="text/x-red" data-template-name="whin-send">
 
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
@@ -29,6 +64,65 @@
 	
 	
 </script>
+
+<script type="text/x-red" data-template-name="whin-receive">
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-auth"><i class="icon-tag"></i> Auth</label>
+        <input type="text" id="node-input-auth" placeholder="Auth">
+    </div>
+</script>
+
+<script type="text/x-red" data-template-name="whin-confirm">
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-auth"><i class="icon-tag"></i> Auth</label>
+        <input type="text" id="node-input-auth" placeholder="Auth">
+    </div>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('whin-config', {
+        category: 'config',
+        defaults: {
+            name: { value: "", required: true },
+            phone: { value: "", required: false },
+            token: { value: "", required: false }
+        },
+        label: function () {
+            return this.name;
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="whin-config">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-globe"></i> Name</label>
+        <input type="text" id="node-config-input-name">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-phone"><i class="fa fa-user"></i> Phone#</label>
+        <input type="text" id="node-config-input-phone">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-token"><i class="fa fa-key"></i> Token</label>
+        <input type="text" id="node-config-input-token">
+    </div>
+</script>
+
+
+
+
 
 <script type="text/x-red" data-help-name="whin">
 <h1 id="node-red-contrib-whin">node-red-contrib-whin</h1>
@@ -64,3 +158,4 @@ deleted after 30 days.</p>
 <p>Once config node is set up, all you need to do is to pass the text to be sent in the msg.payload </p>
 		
 </script>
+
