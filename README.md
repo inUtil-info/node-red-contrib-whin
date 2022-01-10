@@ -65,7 +65,7 @@ If you completed the config fields above, you are all set.  Just select the conf
 
 Now, just inject your text and it shall pop up at the other end.
 
-![sender-node2](./icons/sender_flow.png)
+![sender-node2](./icons/send_flow.png)
 
 
 
@@ -75,7 +75,7 @@ Now, just inject your text and it shall pop up at the other end.
 If you completed the config fields before, you are all set. There are no fields that you have to edit to start sending a whatsapp message.
 Just connect the node output to your flow, deploy, and you'll be all set.
 
-![receiver-node](./icons/receiver_flow.png)
+![receiver-node](./icons/receive_flow.png)
 
 
 ### Confirmation Node (whin-confirm):
