@@ -46,15 +46,9 @@ When you install this package, you will get the following Nodes available on Nod
 
 
 ### Configuration Node:
-These are the fields that you need to complete to set up the whin config node:
+These are the fields that you need to complete to set up the whin onfig node:
 
 ![config-node](./icons/config-node.png)holds
-
-
-### Sender Node (whin-send):
-If you completed the config fields before, you are all set. There are no fields that you have to edit to start sending a whatsapp message. 
-
-![config-node](./icons/sender-node.png)
 
 Bear in mind: 
 - Do NOT include '+' before your countrycode,
@@ -63,6 +57,15 @@ Bear in mind:
 - Make sure the token has no spaces before or after:
 
 ![config-node2](./icons/config-node2.png)
+
+
+### Sender Node (whin-send):
+If you completed the config fields above, you are all set. There are no fields that you have to edit to start sending a whatsapp message. 
+Just inject your text and it shall pop up at the other end.
+
+![config-node](./icons/sender-node.png)
+
+
 
 
 ### Receiver Node (whin-receive):
@@ -70,22 +73,15 @@ Bear in mind:
 If you completed the config fields before, you are all set. There are no fields that you have to edit to start sending a whatsapp message.
 Just connect the node output to your flow, deploy, and you'll be all set.
 
-![config-node](./icons/sender-node.png)
-
-Bear in mind: 
-- Do NOT include '+' before your countrycode,
-- Do NOT include a '-', or any other character or space (anything which is not a number) as part of your phone number.
-- If you do not know, or are not sure of, which is your country code check this: https://countrycode.org/
-- Make sure the token has no spaces before or after:
-
-![config-node2](./icons/config-node2.png)
-
+![receiver-node](./icons/receiver_flow.png)
 
 
 ### Confirmation Node (whin-confirm):
 whin-confirm is a little tricky yet a very useful tool with the right setup. Conceptually is like a back-channel authorisation to proceed in the development of a specific course of action. 
 
 whin-confirm node will take two inputs, a question on the msg.payload property and a time-to-live (ttl) in the msg.ttl expressed in miliseconds.
+
+![confirm-node](./icons/confirm_inputs.jpg)
 
 When node receives the input, it will trigger a buttons-formatted message to your phone with the question you are expected a response for. If, response does not hit the node back in the expected ttl, the node will fire a TimeOut message. Alternatively, if the user responds through the Whatsapp buttons, the answer shall be fired on the node output.
 
@@ -95,17 +91,7 @@ whin-confirm will output Yes, No, or TimeOut while your whin-receive node will r
 The backend controls the message expirity as well and, should you exhust the ttl, will respond directly in your phone and won't send the response to the NR client.
 
 
-If you completed the config fields before, you are all set. There are no fields that you have to edit to start sending a whatsapp message. 
-
-![config-node](./icons/sender-node.png)
-
-Bear in mind: 
-- Do NOT include '+' before your countrycode,
-- Do NOT include a '-', or any other character or space (anything which is not a number) as part of your phone number.
-- If you do not know, or are not sure of, which is your country code check this: https://countrycode.org/
-- Make sure the token has no spaces before or after:
-
-![config-node2](./icons/config-node2.png)
+![confirm-node2](./icons/confirm_flow.jpg)
 
 
 
