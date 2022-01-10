@@ -60,10 +60,12 @@ Bear in mind:
 
 
 ### Sender Node (whin-send):
-If you completed the config fields above, you are all set. There are no fields that you have to edit to start sending a whatsapp message. 
-Just inject your text and it shall pop up at the other end.
+If you completed the config fields above, you are all set.  Just select the configuration:
+![sender-node](./icons/sender-node.png)
 
-![config-node](./icons/sender-node.png)
+Now, just inject your text and it shall pop up at the other end.
+
+![sender-node2](./icons/sender_flow.png)
 
 
 
