@@ -674,8 +674,9 @@ module.exports = function (RED) {
 		};
 		node.name = config.name;
 		node.authconf = RED.nodes.getNode(config.auth);
-		resetStatus();      
-    const client = mqtt.connect("wss://mqin.inutil.info", {clientId:"whin-receive", port:30883, clean:false});
+		resetStatus();
+    // cambio el clientId      
+    const client = mqtt.connect("wss://mqin.inutil.info", {clientId:'mqttjs_' + Math.random().toString(16).substr(2, 8), port:30883, clean:false});
     //const client = mqtt.connect("mqtt://mqin.inutil.info", {clientId:"whin-client", port:30540, clean:false});
     const topic="whin/"+node.authconf.token;
     const phone=node.authconf.phone;
@@ -688,6 +689,13 @@ module.exports = function (RED) {
       if (err) {node.warn("Whin Error: Could not connect to WHIN backend")}       
             })
           })
+    
+/// lu4t
+client.on('close', function () {
+  node.status({fill:"red",shape:"dot",text:"disconnected"});
+  client.reconnect()
+        })
+/// lu4t
     
     client.on('message', function (topic, message) {
       // message is Buffer
@@ -1324,7 +1332,8 @@ module.exports = function (RED) {
 		node.name = config.name;
 		node.authconf = RED.nodes.getNode(config.auth);
 		resetStatus();	
-    const client = mqtt.connect("wss://mqin.inutil.info", {clientId:"whin-confirm", port:30883, clean:false});
+    // cambio el clientId por 'mqttjs_' + Math.random().toString(16).substr(2, 8)
+    const client = mqtt.connect("wss://mqin.inutil.info", {clientId:'mqttjs_' + Math.random().toString(16).substr(2, 8), port:30883, clean:false});
     //const client = mqtt.connect("mqtt://mqin.inutil.info", {clientId:"whin-client", port:30540, clean:true});
     const topic="whin/"+node.authconf.token;
     const phone=node.authconf.phone;
@@ -1381,6 +1390,13 @@ module.exports = function (RED) {
             if (err) {node.warn("Whin Error: Could not connect to WHIN backend")}       
                   })
                 })
+
+  /// lu4t
+client.on('close', function () {
+  node.status({fill:"red",shape:"dot",text:"not connected"});
+  client.reconnect()
+        })
+/// lu4t
           
           client.on('message', function (topic, message) {
             // message is Buffer
