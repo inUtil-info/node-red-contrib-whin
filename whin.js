@@ -1333,7 +1333,6 @@ client.on('close', function () {
 		node.authconf = RED.nodes.getNode(config.auth);
 		resetStatus();	
     // cambio el clientId por 'mqttjs_' + Math.random().toString(16).substr(2, 8)
-    const client = mqtt.connect("wss://mqin.inutil.info", {clientId:'confirm_' + Math.random().toString(16).substr(2, 8), port:30883, clean:false});
     //const client = mqtt.connect("mqtt://mqin.inutil.info", {clientId:"whin-client", port:30540, clean:true});
     const topic="whin/"+node.authconf.token;
     const phone=node.authconf.phone;
@@ -1351,6 +1350,7 @@ client.on('close', function () {
 				}
 			};
 			node.on('input', function (msg) {	
+        const client = mqtt.connect("wss://mqin.inutil.info", {clientId:'confirm_' + Math.random().toString(16).substr(2, 8), port:30883, clean:false});
 				const postData = JSON.stringify({
 					phone: node.authconf.phone,
 					token: node.authconf.token,
@@ -1384,19 +1384,12 @@ client.on('close', function () {
           var nm={};
           nm.payload="TimeOut";
           resetStatus();	
-          if (!alreadysent) {node.send(nm); alreadysent=true}}
+          if (!alreadysent) {node.send(nm); alreadysent=true;client.end()}}
         client.on('connect', function () {
                 client.subscribe(topic,{qos: 2}, function (err) {
             if (err) {node.warn("Whin Error: Could not connect to WHIN backend")}       
                   })
                 })
-
-  /*// lu4t
-client.on('close', function () {
-  node.status({fill:"red",shape:"dot",text:"not connected"});
-  client.reconnect()
-        })
-/// lu4t*/
           
           client.on('message', function (topic, message) {
             // message is Buffer
@@ -1408,15 +1401,14 @@ client.on('close', function () {
             var decrypted = bf.decrypt(indark);
             msg.payload = bf.trimZeros(decrypted);
 
-            if (msg.payload.includes("Yes2") && !alreadysent)  {msg.request = msg.payload.split("Yes2")[1]; msg.payload = "YES"; node.send(msg); alreadysent=true }
-            if (msg.payload.includes("No2")  && !alreadysent)  {msg.request = msg.payload.split("No2")[1]; msg.payload = "NO"; node.send(msg);alreadysent=true }
+            if (msg.payload.includes("Yes2") && !alreadysent)  {msg.request = msg.payload.split("Yes2")[1]; msg.payload = "YES"; node.send(msg); alreadysent=true;client.end()}
+            if (msg.payload.includes("No2")  && !alreadysent)  {msg.request = msg.payload.split("No2")[1]; msg.payload = "NO"; node.send(msg);alreadysent=true;client.end()}
                     
           });
 
 		}); // PENSAR AQUI SI ES MEJOR Q EL NODE ON INPUT ACABE ANTES E LA PARTE MQTT
 
-  }
-    
+  }    
     RED.nodes.registerType("whin-send", WhinNode);
     RED.nodes.registerType("whin-config", WhinConfig);
     RED.nodes.registerType("whin-receive", WhinReceive);
