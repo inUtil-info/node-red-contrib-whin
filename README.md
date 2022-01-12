@@ -121,9 +121,10 @@ There are two types of errors that you can get when using the nodes:
   1. Token - Number pair invalid. This means, very likely, that you did a mistake on your number / token values on the config node
   2. Token do not exist: You either did not complete the sign-up step, or your token has expired (due to 30 days of inactivity)
 
-## Known bugs:
+## Known bugs on previous releases. Please update to latest release if you notice these:
 Occasionally, whin-receive and whin-confirm do not start capturing messages unless a 'deploy' is executed even if there are no changes.
-whin-receive may show the listening status and yet messages may not arrive until a flow redeploy is executed
+whin-receive may show the listening status and yet messages may not arrive until a flow redeploy is executed.
+whin-confirm times out and does not show the confirmation.
 
 ## Security:
 While we have not implemented military-class security, we have done our best to secure data in transit and at rest.
