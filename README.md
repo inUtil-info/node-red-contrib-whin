@@ -116,6 +116,13 @@ You can inport this simple flow, just edit the config fields; add your phone/tok
 
 ![flow](./icons/simple-flow.png)
 
+
+## Demo:
+
+![demo-video](https://i.imgur.com/e8rxz0P.gif)
+
+
+
 ## Error handling:
 There are two types of errors that you can get when using the nodes:
   1. Token - Number pair invalid. This means, very likely, that you did a mistake on your number / token values on the config node
