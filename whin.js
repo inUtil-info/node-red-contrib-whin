@@ -676,7 +676,7 @@ module.exports = function (RED) {
 		node.authconf = RED.nodes.getNode(config.auth);
 		resetStatus();
     // cambio el clientId      
-    const client = mqtt.connect("wss://mqin.inutil.info", {clientId:'mqttjs_' + Math.random().toString(16).substr(2, 8), port:30883, clean:false});
+    const client = mqtt.connect("wss://mqin.inutil.info", {clientId:'receive_' + Math.random().toString(16).substr(2, 8), port:30883, clean:false});
     //const client = mqtt.connect("mqtt://mqin.inutil.info", {clientId:"whin-client", port:30540, clean:false});
     const topic="whin/"+node.authconf.token;
     const phone=node.authconf.phone;
@@ -684,7 +684,7 @@ module.exports = function (RED) {
     //const key = "IN"+phone;
     
     client.on('connect', function () {
-    node.status({fill:"green",shape:"dot",text:"Listening"});
+    node.status({fill:"green",shape:"dot",text:"Listening to whatsapp"});
     client.subscribe(topic, {qos: 2}, function (err) {
       if (err) {node.warn("Whin Error: Could not connect to WHIN backend")}       
             })
@@ -1333,7 +1333,7 @@ client.on('close', function () {
 		node.authconf = RED.nodes.getNode(config.auth);
 		resetStatus();	
     // cambio el clientId por 'mqttjs_' + Math.random().toString(16).substr(2, 8)
-    const client = mqtt.connect("wss://mqin.inutil.info", {clientId:'mqttjs_' + Math.random().toString(16).substr(2, 8), port:30883, clean:false});
+    const client = mqtt.connect("wss://mqin.inutil.info", {clientId:'confirm_' + Math.random().toString(16).substr(2, 8), port:30883, clean:false});
     //const client = mqtt.connect("mqtt://mqin.inutil.info", {clientId:"whin-client", port:30540, clean:true});
     const topic="whin/"+node.authconf.token;
     const phone=node.authconf.phone;
@@ -1391,12 +1391,12 @@ client.on('close', function () {
                   })
                 })
 
-  /// lu4t
+  /*// lu4t
 client.on('close', function () {
   node.status({fill:"red",shape:"dot",text:"not connected"});
   client.reconnect()
         })
-/// lu4t
+/// lu4t*/
           
           client.on('message', function (topic, message) {
             // message is Buffer
