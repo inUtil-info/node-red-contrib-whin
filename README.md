@@ -9,7 +9,7 @@ The package includes three nodes:
 
 [![NPM](https://nodei.co/npm/node-red-contrib-whin.png?mini=true)](https://nodei.co/npm/node-red-contrib-whin/)
 
-Your first choice should use using the Palette in node-red Editor.
+Your first choice should be using the Palette in node-red Editor.
 
 If you are more confortable using the terminal, cd to the user directory and run this command:
 
