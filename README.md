@@ -3,7 +3,18 @@ Node-red nodes that allow users to keep a 2-way Whatsapp communication with one'
 The package includes three nodes:
 - whin-send, to send out whatsapp texts from your NR flows to your whatsapp number.
 - whin-receive, to inject whatsapp texts from within whatsapp into node-red flows.
-- whin-confirm, think of it as a confirmation gate; when used in the middle of a flow, you can request permission to proceed the execution of the flow. You request an active user confirmation, sent to whatsapp; when answered, you will get the response provided as data payload back into the flow.
+- whin-confirm, think of it as a confirmation gate; when used in the middle of a flow, you can request permission to proceed the execution of the flow.
+
+## Install:
+
+[![NPM](https://nodei.co/npm/node-red-contrib-whin.png?mini=true)](https://nodei.co/npm/node-red-contrib-whin/)
+
+Your first choice should use using the Palette in node-red Editor.
+
+If you are more confortable using the terminal, cd to the user directory and run this command:
+
+    npm install node-red-contrib-whin
+
 
 ## Set-up and Usage:
 Before using this node, we strongly recommend you read the FAQ first:
@@ -78,12 +89,17 @@ You might create your own syntax to trigger stuff in your NR. Switching on light
 
 
 ### Confirmation Node (whin-confirm):
-whin-confirm node will take two inputs: a question and a time period. The question goes in on the msg.payload property and a time-to-live (ttl) in the msg.ttl property (this integer number is treated as time, expressed in miliseconds).
+This node sends a request to get an active user confirmation; when answered, you will get the response as an output of the node. 
+There's a max time to answer on whatsapp, if you reach the time without answering, the output payload will contain a time-out msg.
+
+whin-confirm node will take two inputs: a question and a time period. The question goes on the msg.payload property and a time-to-live (ttl) in the msg.ttl property (this integer number is treated as time, expressed in miliseconds). These are the two inputs expected.
 
 When the node is triggered, it will send you a whatsapp with the question you entered on the payload, and you will have a time to answer it (yes/no). 
-If you click "Yes" on whatsapp, you will get a "Yes" as output of the node.
-If you click "No", you will get it on node-red too.
-If you reach the ttl and provide no answer, the node will default to a "Time-out" message. 
+If you click "Yes" on whatsapp, you will get a "YES" as output of the node.
+If you click "No", you will get a "NO" on node-red output.
+If you reach the ttl and provide no answer, the node will default to a "Time-out" message.
+
+Each transaction is unique, meaning that you can only get one output after each trigger: YES, NO or Time-out
 
 We like to think of it as the SMS / push-notifications you get from your bank these days, but answered with a simple button. The main use-case here is allowing you to "authorize" the execution of a flow branch that you don't want to run without manual intervention on node-red.
 
