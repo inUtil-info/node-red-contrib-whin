@@ -133,11 +133,13 @@ You can inport this simple flow, just edit the config fields; add your phone/tok
 ![flow](./icons/simple-flow.png)
 
 
-## Demo:
+## Demo videos:
 
 ![demo-video](https://i.imgur.com/e8rxz0P.gif)
 
 
+Do you want more videos? check this playlist: 
+https://www.youtube.com/playlist?list=PLY4sFY6dmLqxpt3SM5IagyMSdCAc6WNMP
 
 ## Error handling:
 There are two types of errors that you can get when using the nodes:
