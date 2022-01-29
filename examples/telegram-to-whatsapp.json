@@ -1,0 +1,100 @@
+[
+    {
+        "id": "57013c8b545bc2dc",
+        "type": "debug",
+        "z": "cb358f93.bea12",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "d5655d56e697b876",
+        "type": "whin",
+        "z": "cb358f93.bea12",
+        "name": "",
+        "auth": "f160031f44835f95",
+        "x": 625,
+        "y": 725,
+        "wires": [
+            [
+                "57013c8b545bc2dc"
+            ]
+        ]
+    },
+    {
+        "id": "a9272f4154f9959f",
+        "type": "telegram receiver",
+        "z": "cb358f93.bea12",
+        "name": "",
+        "bot": "ec5858a9c63b375b",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 215,
+        "y": 725,
+        "wires": [
+            [
+                "504756466193f217"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "504756466193f217",
+        "type": "function",
+        "z": "cb358f93.bea12",
+        "name": "",
+        "func": "msg.payload = \"Telegram message from: \" + msg.originalMessage.from.username + \" --> \" + msg.payload.content;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 435,
+        "y": 725,
+        "wires": [
+            [
+                "d5655d56e697b876"
+            ]
+        ]
+    },
+    {
+        "id": "f160031f44835f95",
+        "type": "whin-config",
+        "name": "whin",
+        "phone": "Your_Phone_Number",
+        "token": "Your_Whin_Token"
+    },
+    {
+        "id": "ec5858a9c63b375b",
+        "type": "telegram bot",
+        "botname": "Name_of_Bot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    }
+]

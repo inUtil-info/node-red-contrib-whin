@@ -1,0 +1,140 @@
+[
+    {
+        "id": "1a997a32c4084c05",
+        "type": "inject",
+        "z": "cf89517d277e4d1d",
+        "name": "question and TTL",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "ttl",
+                "v": "10000",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "should I stay?",
+        "payloadType": "str",
+        "x": 505,
+        "y": 575,
+        "wires": [
+            [
+                "d1a2e8d80cf9c9fa"
+            ]
+        ]
+    },
+    {
+        "id": "25f1ce35840ce3bb",
+        "type": "debug",
+        "z": "cf89517d277e4d1d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 875,
+        "y": 575,
+        "wires": []
+    },
+    {
+        "id": "433c8b029ee089f3",
+        "type": "whin-send",
+        "z": "cf89517d277e4d1d",
+        "name": "",
+        "auth": "6771c73d3fbbf478",
+        "x": 870,
+        "y": 425,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "30d3897e45d5f274",
+        "type": "whin-receive",
+        "z": "cf89517d277e4d1d",
+        "name": "",
+        "auth": "6771c73d3fbbf478",
+        "x": 495,
+        "y": 500,
+        "wires": [
+            [
+                "83a19731f1600013"
+            ]
+        ]
+    },
+    {
+        "id": "d1a2e8d80cf9c9fa",
+        "type": "whin-confirm",
+        "z": "cf89517d277e4d1d",
+        "name": "",
+        "auth": "6771c73d3fbbf478",
+        "x": 720,
+        "y": 575,
+        "wires": [
+            [
+                "25f1ce35840ce3bb"
+            ]
+        ]
+    },
+    {
+        "id": "27dada73c87a6e45",
+        "type": "inject",
+        "z": "cf89517d277e4d1d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 510,
+        "y": 425,
+        "wires": [
+            [
+                "433c8b029ee089f3"
+            ]
+        ]
+    },
+    {
+        "id": "83a19731f1600013",
+        "type": "debug",
+        "z": "cf89517d277e4d1d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 845,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "6771c73d3fbbf478",
+        "type": "whin-config",
+        "name": "config",
+        "phone": "PHONE_GOES_HERE",
+        "token": "TOKEN_GOES_HERE"
+    }
+]
