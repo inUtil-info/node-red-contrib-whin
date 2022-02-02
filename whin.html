@@ -49,6 +49,20 @@
     });
 </script>
 
+<script type="text/javascript">
+    RED.nodes.registerType('whin-config', {
+        category: 'config',
+        defaults: {
+            name: { value: "", required: true },
+            phone: { value: "", required: false },
+            token: { value: "", required: false }
+        },
+        label: function () {
+            return this.name;
+        }
+    });
+</script>
+
 
 <script type="text/x-red" data-template-name="whin-send">
 
@@ -91,20 +105,6 @@
     </div>
 </script>
 
-<script type="text/javascript">
-    RED.nodes.registerType('whin-config', {
-        category: 'config',
-        defaults: {
-            name: { value: "", required: true },
-            phone: { value: "", required: false },
-            token: { value: "", required: false }
-        },
-        label: function () {
-            return this.name;
-        }
-    });
-</script>
-
 <script type="text/x-red" data-template-name="whin-config">
     <div class="form-row">
         <label for="node-config-input-name"><i class="fa fa-globe"></i> Name</label>
@@ -121,41 +121,62 @@
 </script>
 
 
+<script type="text/x-red" data-help-name="whin-send">
 
+<p>A node-red node that allow users to send a Whatsapp text to one&#39;s mobile.</p>
 
+<h3>Inputs</h3>
+<p>1. Standard Input: the text that will be sent to whatsapp.</p>
 
-<script type="text/x-red" data-help-name="whin">
-<h1 id="node-red-contrib-whin">node-red-contrib-whin</h1>
-<p>Node-red nodes that allow users to send Whatsapp text to one&#39;s mobile.</p>
-<h2 id="set-up-and-usage-">Set-up and Usage:</h2>
-<p>This package contains a configuration node, and a sender node which acts as a WhatsApp endpoint. 
-The only thing required is a token, that can be retrieved by setting up Whin. To do so, just send a
-text Whatsapp with your mobile to +34 613 164 997 including the word signup, and you will get your token in a response text.</p>
-<p>Open the configuration node and fill in the fields <em>Phone</em> and <em>Token</em>, and you&#39;ll be all set.
-Note that the Phone and Token values are linked, this means that the node wont work if the phone
-number used to get the token is not matching the one you used to get the token. This is done to prevent spam.</p>
-<p>Your token is valid for 30 days. We set the Time-To-Live of 30 days everytime you send a whatsapp
-message using the node. Keep using the service from time to time, and it won&#39;t expire.
-If you, for whatever reason, do not use the service for 30 days, you can get a new token repeating 
-the process described above.</p>
-<h2 id="terms-of-use-">Terms of use:</h2>
-<p>The service is free, you do not need to register, and we do not gather any Personal Info. 
-We understand that the user sending the sign-up message wishes to use the service. The service is just 
-sending whatsapp messages to the number that orginated the request. We do not share the numbers using the
-service with anyone. We do not send messages to our users.</p>
-<p>There is an hourly rate limit set to 100 messages per user.</p>
-<p>If you wish to stop using the service, you just want to stop using the node and your token will be
-deleted after 30 days.</p>
-<h2 id="types-of-messages-">Types of messages:</h2>
-<p>At the moment, the only type of messages we route are text messages. </p>
-<h2 id="error-handling-">Error handling:</h2>
-<p>There are two types of errors that you can get when using the node:</p>
-<ol>
-<li>Token - Number pair invalid. This means, very likely, that you did a mistake on your number / token values on the config node</li>
-<li>Token do not exist: You either did not complete the sign-up step, or your token has expired (due to 30 days of inactivity)</li>
-</ol>
-<h2 id="sending-a-text-message-">Sending a text message:</h2>
-<p>Once config node is set up, all you need to do is to pass the text to be sent in the msg.payload </p>
-		
+<h3>Output</h3>
+<p>1. Standard Output: produces a "Request received" response when the message is received by the shared gateway. </p>
+
+<h3>Details</h3>
+<p>The <code>msg.payload</code> must be an object that contains a complete set of the message properties expected by whin:
+
+ <ul>
+ <li><code>payload</code> the message content</li>
+ <li><code>token</code> the token (set on the config-node</li>
+ <li><code>phone</code> the phone number receiving the msg (set on the config-node</li>
+ </ul>
+</p>	
+
 </script>
 
+
+<script type="text/x-red" data-help-name="whin-receive">
+
+    <p>A node-red node that allow users to receive a Whatsapp text foom the mobile defined on the config.</p>
+    
+    <h3>Output</h3>
+    <p>1. Standard Output: contains the message received, the content can be used for example as a command that is passed into a flow.</p>
+    
+    <h3>Details</h3>
+    <p>The <code>msg.payload</code> produced as output is a string.
+    
+</script>
+    
+
+<script type="text/x-red" data-help-name="whin-confirm">
+
+        <p>This node allows the user to confirm an action by means of a Whatsapp sent with two buttons: Yes and No answers are possible.
+        The answer will be received by the node, and delivered as output. The user has to answer before the time-to-live defined on the node
+        is consumed. If the answer is not delivered on time, a Time-out msg is produced.
+        Each transaction is unique, the user cannot answer the question sent by the node more than once.</p>
+        
+        <h3>Inputs</h3>
+        <p>1. Question: the question that will be sent to whatsapp.</p>
+        <p>1. TTL: number; meassured on miliseconds, the time that the node will wait for an answer before it times-out.</p>
+
+        <h3>Output</h3>
+        <p>1. Standard Output: the possible outputs are: Yes, No (based on the answer), or time-out (if an answer is not provided before TTL ends).</p>
+        
+        <h3>Details</h3>
+        <p>The <code>msg.payload</code> contains the question sent.
+        The <code>msg.ttl</code> contains the number of miliseconds to answer, before a time-out msg is produced.
+        </p>	
+        
+</script>
+        
+        
+    
