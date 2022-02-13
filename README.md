@@ -1,3 +1,8 @@
+# Update Feb 2022
+Whatsapp banned the shared number we were using. We leave the code open on this repo so that the community can take advantage of it.
+If you want to use whin, you can still use your own number. 
+Thanks for using whin :)
+
 # Summary
 Node-red nodes that allow users to keep a 2-way Whatsapp communication with one's mobile.
 The package includes three nodes:
