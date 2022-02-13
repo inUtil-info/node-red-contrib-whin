@@ -1,8 +1,3 @@
-# Update Feb 2022
-Whatsapp banned the shared number we were using. We leave the code open on this repo so that the community can take advantage of it.
-If you want to use whin, you can still use your own number. 
-Thanks for using whin :)
-
 # Summary
 Node-red nodes that allow users to keep a 2-way Whatsapp communication with one's mobile.
 The package includes three nodes:
@@ -166,6 +161,5 @@ The service is free, you do not need to register, and we do not gather any Perso
 We understand that the user sending the sign-up message wishes to use the service. The service is just 
 sending whatsapp messages to the number that orginated the request. We do not share the numbers using the
 service with anyone, nor we send messages to our users.
-For now, there is an hourly rate limit set to 100 messages per user.
-If you wish to stop using the service, you just want to stop using the node and your token will be
-deleted after 30 days.
+For now, there is an hourly rate limit set to 20 messages per user. When you reach 20 msg in one hour you need to manually request a new token, otherwise whin wont work for you. This is something we implemented as a consequence of the abuse usage of the service.
+If you wish to stop using the service, you just want to stop using the node and your token will be deleted after 30 days.
