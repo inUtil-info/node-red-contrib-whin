@@ -675,9 +675,10 @@ module.exports = function (RED) {
 		node.name = config.name;
 		node.authconf = RED.nodes.getNode(config.auth);
 		resetStatus();
-    // cambio el clientId      
-    const client = mqtt.connect("wss://mqin.inutil.info", {clientId:'receive_' + Math.random().toString(16).substr(2, 8), port:30883, clean:false});
-    //const client = mqtt.connect("mqtt://mqin.inutil.info", {clientId:"whin-client", port:30540, clean:false});
+    // cambio el clientId, quito websockets por consumo cpu    
+    // const client = mqtt.connect("wss://mqin.inutil.info", {clientId:'receive_' + Math.random().toString(16).substr(2, 8), port:30883, clean:false});
+    // const client = mqtt.connect("mqtt://mqin.inutil.info", {clientId:"whin-client", port:30540, clean:false});
+    const client = mqtt.connect("mqtt://mqin.inutil.info", {clientId:'receive_' + Math.random().toString(16).substr(2, 8), port:30540, clean:false});
     const topic="whin/"+node.authconf.token;
     const phone=node.authconf.phone;
     const key = node.authconf.token.slice(8,20)		  
@@ -1350,8 +1351,9 @@ client.on('close', function () {
 				}
 			};
 			node.on('input', function (msg) {	
-        const client = mqtt.connect("wss://mqin.inutil.info", {clientId:'confirm_' + Math.random().toString(16).substr(2, 8), port:30883, clean:false});
-				const postData = JSON.stringify({
+        // const client = mqtt.connect("wss://mqin.inutil.info", {clientId:'confirm_' + Math.random().toString(16).substr(2, 8), port:30883, clean:false});
+				const client = mqtt.connect("mqtt://mqin.inutil.info", {clientId:'confirm_' + Math.random().toString(16).substr(2, 8), port:30540, clean:false});
+        const postData = JSON.stringify({
 					phone: node.authconf.phone,
 					token: node.authconf.token,
           text: msg.payload,
