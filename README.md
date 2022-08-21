@@ -161,5 +161,7 @@ The service is free, you do not need to register, and we do not gather any Perso
 We understand that the user sending the sign-up message wishes to use the service. The service is just 
 sending whatsapp messages to the number that orginated the request. We do not share the numbers using the
 service with anyone, nor we send messages to our users.
-For now, there is an hourly rate limit set to 10 messages per user. When you reach 10 msg in one hour you need to wait, otherwise whin wont work for you. This is something we implemented as a consequence of the abuse usage of the service.
+For now there is an hourly rate limit set to 10 messages per user. When you reach 10 msg in one hour your msgs will not be
+delivered till the 1 hour timer is reset. Whin will send you a reminder of the limit. If you don't adjust how your runtime 
+works and get to 50 msgs in 1 hr, your IP will be blocked. This is something we implemented as a consequence of the abuse usage of the service.
 If you wish to stop using the service, you just want to stop using the node and your token will be deleted after 30 days.
