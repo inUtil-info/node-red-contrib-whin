@@ -1,0 +1,182 @@
+<script type="text/javascript">
+    RED.nodes.registerType('whin-send',{
+        category: 'network',
+        color: '#25D366',
+        defaults: {
+            name: 	{value:""},
+            auth:	{value: "", type: "whin-config"}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "icons/whatsapp-logo.png",
+        label: function() {
+            return this.name||"whin-send";
+        }
+    });
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('whin-receive',{
+        category: 'network',
+        color: '#25D366',
+        defaults: {
+            name:       {value:""},
+            auth:       {value: "", type: "whin-config"}
+        },
+        inputs:0,
+        outputs:1,
+        icon: "icons/whatsapp-rev.png",
+        label: function() {
+            return this.name||"whin-receive";
+        }
+    });
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('whin-confirm',{
+        category: 'network',
+        color: '#25D366',
+        defaults: {
+            name:       {value:""},
+            auth:       {value: "", type: "whin-config"}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "icons/whatsapp-conf.png",
+        label: function() {
+            return this.name||"whin-confirm";
+        }
+    });
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('whin-config', {
+        category: 'config',
+        defaults: {
+            name: { value: "", required: true },
+            phone: { value: "", required: false },
+            token: { value: "", required: false }
+        },
+        label: function () {
+            return this.name;
+        }
+    });
+</script>
+
+
+<script type="text/x-red" data-template-name="whin-send">
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+		
+    <div class="form-row">
+        <label for="node-input-auth"><i class="icon-tag"></i> Auth</label>
+        <input type="text" id="node-input-auth" placeholder="Auth">
+    </div>
+	
+	
+</script>
+
+<script type="text/x-red" data-template-name="whin-receive">
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-auth"><i class="icon-tag"></i> Auth</label>
+        <input type="text" id="node-input-auth" placeholder="Auth">
+    </div>
+</script>
+
+<script type="text/x-red" data-template-name="whin-confirm">
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-auth"><i class="icon-tag"></i> Auth</label>
+        <input type="text" id="node-input-auth" placeholder="Auth">
+    </div>
+</script>
+
+<script type="text/x-red" data-template-name="whin-config">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-globe"></i> Name</label>
+        <input type="text" id="node-config-input-name">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-phone"><i class="fa fa-user"></i> Phone#</label>
+        <input type="text" id="node-config-input-phone">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-token"><i class="fa fa-key"></i> Token</label>
+        <input type="text" id="node-config-input-token">
+    </div>
+</script>
+
+
+<script type="text/x-red" data-help-name="whin-send">
+
+<p>A node-red node that allow users to send a Whatsapp text to one&#39;s mobile.</p>
+
+<h3>Inputs</h3>
+<p>1. Standard Input: the text that will be sent to whatsapp.</p>
+
+<h3>Output</h3>
+<p>1. Standard Output: produces a "Request received" response when the message is received by the shared gateway. </p>
+
+<h3>Details</h3>
+<p>The <code>msg.payload</code> must be an object that contains a complete set of the message properties expected by whin:
+
+ <ul>
+ <li><code>payload</code> the message content</li>
+ <li><code>token</code> the token (set on the config-node</li>
+ <li><code>phone</code> the phone number receiving the msg (set on the config-node</li>
+ </ul>
+</p>	
+
+</script>
+
+
+<script type="text/x-red" data-help-name="whin-receive">
+
+    <p>A node-red node that allow users to receive a Whatsapp text foom the mobile defined on the config.</p>
+    
+    <h3>Output</h3>
+    <p>1. Standard Output: contains the message received, the content can be used for example as a command that is passed into a flow.</p>
+    
+    <h3>Details</h3>
+    <p>The <code>msg.payload</code> produced as output is a string.
+    
+</script>
+    
+
+<script type="text/x-red" data-help-name="whin-confirm">
+
+        <p>This node allows the user to confirm an action by means of a Whatsapp sent with two buttons: Yes and No answers are possible.
+        The answer will be received by the node, and delivered as output. The user has to answer before the time-to-live defined on the node
+        is consumed. If the answer is not delivered on time, a Time-out msg is produced.
+        Each transaction is unique, the user cannot answer the question sent by the node more than once.</p>
+        
+        <h3>Inputs</h3>
+        <p>1. Question: the question that will be sent to whatsapp.</p>
+        <p>1. TTL: number; meassured on miliseconds, the time that the node will wait for an answer before it times-out.</p>
+
+        <h3>Output</h3>
+        <p>1. Standard Output: the possible outputs are: Yes, No (based on the answer), or time-out (if an answer is not provided before TTL ends).</p>
+        
+        <h3>Details</h3>
+        <p>The <code>msg.payload</code> contains the question sent.
+        The <code>msg.ttl</code> contains the number of miliseconds to answer, before a time-out msg is produced.
+        </p>	
+        
+</script>
+        
+        
+    

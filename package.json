@@ -1,0 +1,36 @@
+{
+  "name": "node-red-contrib-whin",
+  "version": "0.1.15",
+  "description": "Whatsapp on node-red, through a shared gateway",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inutil-info/node-red-contrib-whin.git"
+  },
+  "main": "whin.js",
+  "node-red": {
+    "version": ">=1.0.0",
+    "nodes": {
+      "whin-send": "whin.js"
+    }
+  },
+  "keywords": [
+    "node-red",
+    "whin",
+    "whatsapp"
+  ],
+  "author": "info@inutil.info",
+  "bugs": {
+    "url": "https://github.com/inutil-info/node-red-contrib-whin/issues"
+  },
+  "homepage": "https://github.com/inutil-info/node-red-contrib-whin#readme",
+  "license": "MIT",
+  "directories": {
+    "example": "examples"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "dependencies": {
+    "mqtt": "^4.3.7"
+  }
+}

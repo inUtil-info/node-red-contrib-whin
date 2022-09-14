@@ -1,0 +1,175 @@
+<mxfile host="app.diagrams.net" modified="2021-12-08T12:18:19.383Z" agent="5.0 (X11)" etag="_XPGKbg3bSvCqgGinHwv" version="15.9.1" type="github">
+  <diagram id="_MvJRwbRlFDB8sVFde09" name="Page-1">
+    <mxGraphModel dx="1054" dy="613" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="hoSV_VR0XofI_3oThBMX-7" value="" style="endArrow=classic;html=1;rounded=0;startArrow=none;dashed=1;dashPattern=1 2;strokeWidth=1;" parent="1" source="hoSV_VR0XofI_3oThBMX-4" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280.5" y="160" as="sourcePoint" />
+            <mxPoint x="281" y="680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-4" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.rect;fillColor2=none;strokeWidth=2;size=20;indent=5;" parent="1" vertex="1">
+          <mxGeometry x="271" y="190" width="20" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-8" value="" style="endArrow=none;html=1;rounded=0;dashed=1;dashPattern=1 2;" parent="1" target="hoSV_VR0XofI_3oThBMX-4" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280.5" y="160" as="sourcePoint" />
+            <mxPoint x="280.5" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-9" value="" style="endArrow=classic;html=1;rounded=0;startArrow=none;exitX=0.5;exitY=1;exitDx=0;exitDy=0;dashed=1;dashPattern=1 2;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="402" y="360" as="sourcePoint" />
+            <mxPoint x="402" y="680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-11" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;dashPattern=1 2;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="401.5" y="160" as="sourcePoint" />
+            <mxPoint x="402" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-12" value="" style="endArrow=classic;html=1;rounded=0;startArrow=none;dashed=1;dashPattern=1 2;" parent="1" source="hoSV_VR0XofI_3oThBMX-13" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="520.5" y="160" as="sourcePoint" />
+            <mxPoint x="521" y="680" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="521" y="610" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-13" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.rect;fillColor2=none;strokeWidth=2;size=20;indent=5;" parent="1" vertex="1">
+          <mxGeometry x="511" y="401" width="20" height="129" as="geometry" />
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-14" value="" style="endArrow=none;html=1;rounded=0;dashed=1;dashPattern=1 2;" parent="1" target="hoSV_VR0XofI_3oThBMX-13" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="520.5" y="160" as="sourcePoint" />
+            <mxPoint x="520.5" y="760" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="521" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-15" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="110" y="190" as="sourcePoint" />
+            <mxPoint x="264" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-16" value="&lt;div&gt;&lt;i&gt;&lt;b&gt;sign-up&lt;/b&gt;&lt;/i&gt;&lt;/div&gt;&lt;div&gt;message&lt;/div&gt;" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;" parent="hoSV_VR0XofI_3oThBMX-15" connectable="0" vertex="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-17" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="261" y="250" as="sourcePoint" />
+            <mxPoint x="110" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-18" value="&lt;div&gt;&lt;i&gt;&lt;b&gt;token&lt;/b&gt;&lt;/i&gt;&lt;/div&gt;&lt;div&gt;&lt;i&gt;received&lt;br&gt;&lt;b&gt;&lt;/b&gt;&lt;/i&gt;&lt;/div&gt;" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;" parent="hoSV_VR0XofI_3oThBMX-17" connectable="0" vertex="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-21" value="" style="dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.whatsapp;fillColor=#00E676;strokeColor=#dddddd" parent="1" vertex="1">
+          <mxGeometry x="91" y="140" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-22" value="" style="image;html=1;image=img/lib/clip_art/telecommunication/iPhone_128x128.png;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="40" y="189" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-28" value="&lt;div style=&quot;font-size: 12px;&quot;&gt;whin &lt;br style=&quot;font-size: 12px;&quot;&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;config node&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" parent="1" vertex="1">
+          <mxGeometry x="372" y="120" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-29" value="&lt;div style=&quot;font-size: 12px;&quot;&gt;whin &lt;br style=&quot;font-size: 12px;&quot;&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;whatsapp&lt;/div&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;number&lt;br style=&quot;font-size: 12px;&quot;&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" parent="1" vertex="1">
+          <mxGeometry x="250.5" y="120" width="61" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-30" value="&lt;div style=&quot;font-size: 12px;&quot;&gt;whin &lt;br style=&quot;font-size: 12px;&quot;&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 12px;&quot;&gt;send / receive node&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" parent="1" vertex="1">
+          <mxGeometry x="485" y="120" width="78" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-31" value="" style="image;html=1;image=img/lib/clip_art/telecommunication/iPhone_128x128.png;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="40" y="445" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-32" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.rect;fillColor2=none;strokeWidth=2;size=20;indent=5;" parent="1" vertex="1">
+          <mxGeometry x="271" y="430" width="20" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-33" value="You" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="700" y="420" width="40" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-36" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="680" y="401" as="sourcePoint" />
+            <mxPoint x="550" y="401" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-37" value="&lt;div&gt;&amp;nbsp;send me a &lt;br&gt;&lt;/div&gt;&lt;div&gt;whatsapp&lt;br&gt;&lt;/div&gt;" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;" parent="hoSV_VR0XofI_3oThBMX-36" connectable="0" vertex="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-39" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="550" y="525" as="sourcePoint" />
+            <mxPoint x="680" y="525" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-40" value="&amp;nbsp;message&amp;nbsp; &lt;br&gt;&lt;div&gt;sent&lt;/div&gt;" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;" parent="hoSV_VR0XofI_3oThBMX-39" connectable="0" vertex="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-42" value="config values" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=10;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="331" y="270" width="140" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-43" value="your_number" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=10;" parent="hoSV_VR0XofI_3oThBMX-42" vertex="1">
+          <mxGeometry y="30" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-44" value="your_token" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontSize=10;" parent="hoSV_VR0XofI_3oThBMX-42" vertex="1">
+          <mxGeometry y="60" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-47" value="" style="endArrow=classic;html=1;rounded=0;fontSize=10;dashed=1;spacingTop=0;spacingLeft=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="501" y="435" as="sourcePoint" />
+            <mxPoint x="301" y="435" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-48" value="" style="shape=message;html=1;outlineConnect=0;fontSize=10;" parent="hoSV_VR0XofI_3oThBMX-47" vertex="1">
+          <mxGeometry width="20" height="14" relative="1" as="geometry">
+            <mxPoint x="-9" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-49" value="" style="endArrow=classic;html=1;rounded=0;fontSize=10;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="450" as="sourcePoint" />
+            <mxPoint x="100" y="450" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="190" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-50" value="" style="shape=message;html=1;outlineConnect=0;fontSize=10;" parent="hoSV_VR0XofI_3oThBMX-49" vertex="1">
+          <mxGeometry width="20" height="14" relative="1" as="geometry">
+            <mxPoint x="-10" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-51" value="" style="endArrow=classic;html=1;rounded=0;fontSize=10;dashed=1;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="491" as="sourcePoint" />
+            <mxPoint x="500" y="491" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="390" y="491" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-52" value="&amp;nbsp;OK sent " style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;fontSize=10;" parent="hoSV_VR0XofI_3oThBMX-51" connectable="0" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hoSV_VR0XofI_3oThBMX-54" value="" style="dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.whatsapp;fillColor=#00E676;strokeColor=#dddddd" parent="1" vertex="1">
+          <mxGeometry x="91" y="401" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="93zwurql1MCqb4KaVWXZ-2" value="your phone" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" parent="1" vertex="1">
+          <mxGeometry x="43" y="257" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="93zwurql1MCqb4KaVWXZ-3" value="your phone" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" parent="1" vertex="1">
+          <mxGeometry x="44" y="511" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
