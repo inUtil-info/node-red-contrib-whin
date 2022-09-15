@@ -5,6 +5,12 @@ The package includes three nodes:
 - whin-receive, to inject whatsapp texts from within whatsapp into node-red flows.
 - whin-confirm, think of it as a confirmation gate; when used in the middle of a flow, you can request permission to proceed the execution of the flow.
 
+## Deprecation Notice:
+
+The back-end supporting these node-red modules will be going EOL on Dec 2022.
+We advice all users to start looking for alternatives to support their use-cases.
+
+
 ## Install:
 
 [![NPM](https://nodei.co/npm/node-red-contrib-whin.png?mini=true)](https://nodei.co/npm/node-red-contrib-whin/)
