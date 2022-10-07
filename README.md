@@ -9,11 +9,13 @@ The package includes three nodes:
 
 The back-end supporting these node-red modules will be going EOL on Dec 2022.
 
-At the moment we are re-engineering the service and developing the new version of the back-end, so that it can support the (huge) number of requests that whin has to handle daily. We thought the right path was to start it from scratch using all we learnt from our mistakes (and yours :) ), and this is why a new project will be launched and announced when we EOL whin.
+At the moment we are re-engineering the service and developing the new version of the back-end, so that it can support the (huge) number of requests that whin has to handle daily. We thought the right path was to code it from scratch using all we learnt from our mistakes (and yours :) ), and this is why a new project is launched.
+
+You can start trying WHIN v2 through rapidAPI. While nodes are being released, you can start using the service with simple NR core nodes. Take a look at this post: https://discourse.nodered.org/t/whin-whatsapp-gateway-new-version-beta and please share your thoughts.
 
 We do appreciate all the support from whin users over the last years; as the project got bigger, we reached a point were we needed to set a rate-limit policy to protect the availability of the service. Please, forgive us if you were banned or blacklisted; we did it as a way to preserve the availability of the service for those users that use it with care.
 
-The reloaded version of whin will be node-red friendly, and will include a lot of new feautures; it will still be done by tinkers for tinkers. So stay tunned.
+The reloaded version of whin will be node-red friendly, and will include a lot of new features; it will still be done by tinkers for tinkers. So stay tunned.
 
 
 ## Install:
