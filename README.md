@@ -7,7 +7,9 @@ The package includes three nodes:
 
 ## Deprecation Notice:
 
-The back-end supporting these node-red modules will be going EOL on Dec 2022.
+The back-end supporting these node-red modules will be going EOL on Nov 2022.
+
+node-red-contrib-whin is deleted from npm and node-red flow palette as of Oct 25th, 2022. No new installs are allowed.
 
 At the moment we are re-engineering the service and developing the new version of the back-end, so that it can support the (huge) number of requests that whin has to handle daily. We thought the right path was to code it from scratch using all we learnt from our mistakes (and yours :) ), and this is why a new project is launched.
 
