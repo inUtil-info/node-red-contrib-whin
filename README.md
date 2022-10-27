@@ -1,11 +1,4 @@
-# Summary
-Node-red nodes that allow users to keep a 2-way Whatsapp communication with one's mobile.
-The package includes three nodes:
-- whin-send, to send out whatsapp texts from your NR flows to your whatsapp number.
-- whin-receive, to inject whatsapp texts from within whatsapp into node-red flows.
-- whin-confirm, think of it as a confirmation gate; when used in the middle of a flow, you can request permission to proceed the execution of the flow.
-
-## Deprecation Notice:
+# Deprecation Notice:
 
 The back-end supporting these node-red modules will be going EOL on Nov 2022.
 
@@ -19,6 +12,13 @@ We do appreciate all the support from whin users over the last years; as the pro
 
 The reloaded version of whin will be node-red friendly, and will include a lot of new features; it will still be done by tinkers for tinkers. So stay tunned.
 
+
+## Summary
+Node-red nodes that allow users to keep a 2-way Whatsapp communication with one's mobile.
+The package includes three nodes:
+- whin-send, to send out whatsapp texts from your NR flows to your whatsapp number.
+- whin-receive, to inject whatsapp texts from within whatsapp into node-red flows.
+- whin-confirm, think of it as a confirmation gate; when used in the middle of a flow, you can request permission to proceed the execution of the flow.
 
 ## Install:
 
