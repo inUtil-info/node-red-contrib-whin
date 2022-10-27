@@ -4,13 +4,13 @@ The back-end supporting these node-red modules will be going EOL on Nov 2022.
 
 node-red-contrib-whin is deleted from npm and node-red flow palette as of Oct 25th, 2022. No new installs are allowed.
 
-At the moment we are re-engineering the service and developing the new version of the back-end, so that it can support the (huge) number of requests that whin has to handle daily. We thought the right path was to code it from scratch using all we learnt from our mistakes (and yours :) ), and this is why a new project is launched.
+We have re-engineered the service and migrated to a new version of the back-end, now it can support the (huge) number of requests that whin had to handle daily. We thought the right path was to code it from scratch using all we learnt from our mistakes (and yours :) ), and this is why a new project is launched.
 
-You can start trying WHIN v2 through rapidAPI. While nodes are being released, you can start using the service with simple NR core nodes. Take a look at this post: https://discourse.nodered.org/t/whin-whatsapp-gateway-new-version-beta and please share your thoughts.
+You can start using WHIN through rapidAPI. While nodes are released, and can be installed following this guide: https://flows.nodered.org/node/@inutil-labs/node-red-whin-whatsapp
 
-We do appreciate all the support from whin users over the last years; as the project got bigger, we reached a point were we needed to set a rate-limit policy to protect the availability of the service. Please, forgive us if you were banned or blacklisted; we did it as a way to preserve the availability of the service for those users that use it with care.
+We do appreciate all the support from whin v1 users over the last years; as the project got bigger, we reached a point were we needed to set a rate-limit policy to protect the availability of the service. Please, forgive us if you were banned or blacklisted; we did it as a way to preserve the availability of the service for those users that use it with care.
 
-The reloaded version of whin will be node-red friendly, and will include a lot of new features; it will still be done by tinkers for tinkers. So stay tunned.
+The reloaded version of whin is node-red friendly, and includes a lot of new features; it is still done by tinkers for tinkers.
 
 
 ## Summary
