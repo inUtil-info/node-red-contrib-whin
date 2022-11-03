@@ -6,9 +6,10 @@ node-red-contrib-whin is deleted from npm and node-red flow palette as of Oct 25
 
 We have re-engineered the service and migrated to a new version of the back-end, now it can support the (huge) number of requests that whin had to handle daily. We thought the right path was to code it from scratch using all we learnt from our mistakes (and yours :) ), and this is why a new project is launched.
 
-You can start using WHIN through rapidAPI. While nodes are released, and can be installed following this guide: https://flows.nodered.org/node/@inutil-labs/node-red-whin-whatsapp
+New nodes are released and can be installed following this guide: 
+https://flows.nodered.org/node/@inutil-labs/node-red-whin-whatsapp
 
-We do appreciate all the support from whin v1 users over the last years; as the project got bigger, we reached a point were we needed to set a rate-limit policy to protect the availability of the service. Please, forgive us if you were banned or blacklisted; we did it as a way to preserve the availability of the service for those users that use it with care.
+We do appreciate all the support from whin v1 users over the last years; as the project got bigger, we reached a point were we needed to set a rate-limit policy to protect the availability of the service. Please, forgive us if you were banned or blacklisted; we did it as a way to preserve the availability of the service for those users that use it with care. The good news is the new release will NOT blacklist anyone, there is a rate limit machanism embeded that will prevent abuse and performance degradation.
 
 The reloaded version of whin is node-red friendly, and includes a lot of new features; it is still done by tinkers for tinkers.
 
